@@ -4,7 +4,7 @@ const cats = ["All", "🏄 Water", "🌿 Eco", "🎨 Culture", "🧘 Wellness", 
 const experiences = [{
   title: "Bioluminescent Bay Night Kayak",
   desc: "Paddle through Laguna Grande in Fajardo, where microorganisms glow neon blue in the water around your kayak.",
-  img: "https://images.unsplash.com/photo-1502933691298-84fc14542831?w=800&q=85",
+  img: "https://images.unsplash.com/photo-1504701954957-2010ec3bcec1?w=800&q=85",
   dur: "3 hr",
   grp: "8 max",
   price: "$72",
@@ -14,7 +14,7 @@ const experiences = [{
 }, {
   title: "Old San Juan Food & Culture Crawl",
   desc: "Walk the cobblestones of Old San Juan tasting mofongo, alcapurrias and fresh coconut with a local guide.",
-  img: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=85",
+  img: "https://images.unsplash.com/photo-1569949381669-ecf31ae8e613?w=800&q=85",
   dur: "4 hr",
   grp: "10 max",
   price: "$58",
@@ -44,7 +44,7 @@ const experiences = [{
 }, {
   title: "Hacienda Coffee Farm Sunrise Tour",
   desc: "Visit a working Puerto Rican coffee farm in the mountains of Jayuya. Pick beans, roast, and taste single-origin PR coffee.",
-  img: "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=800&q=85",
+  img: "https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=800&q=85",
   dur: "5 hr",
   grp: "8 max",
   price: "$65",
@@ -64,7 +64,7 @@ const experiences = [{
 }, {
   title: "Bomba y Plena Cultural Workshop",
   desc: "Learn the African-rooted rhythms of bomba with a master drummer in Cataño. Includes a short performance and dance session.",
-  img: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=85",
+  img: "https://images.unsplash.com/photo-1547153760-18fc86324498?w=800&q=85",
   dur: "2 hr",
   grp: "15 max",
   price: "$45",
@@ -122,7 +122,7 @@ function AdventuresScreen() {
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "card-lift mb-8 relative overflow-hidden rounded-3xl", style: {
         height: 320
       }, children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: "https://images.unsplash.com/photo-1583398701142-37bd2d3f9d49?w=1400&q=85", alt: "El Morro private guided tour", className: "absolute inset-0 w-full h-full object-cover" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: "https://images.unsplash.com/photo-1583398701142-37bd2d3f9d49?w=1400&q=85", alt: "El Morro fortress at sunset — private guided tour Puerto Rico", className: "absolute inset-0 w-full h-full object-cover" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 overlay-left" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 overlay-hero" }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute bottom-0 inset-x-0 p-7", children: [

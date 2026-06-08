@@ -18,7 +18,7 @@ const stories = [
     badge: "Local Elder",
     category: "Elders",
     tags: ["#FamilyHistory", "#CatañoProud", "#OralHistory"],
-    img: "https://images.unsplash.com/photo-1548574505-5e239809ee19?w=900&q=85",
+    img: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=900&q=85",
     avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&q=80",
     likes: 847,
     duration: "8 min",
@@ -42,7 +42,7 @@ const stories = [
     badge: "Youth Creator",
     category: "Culture",
     tags: ["#Cultura", "#Música", "#BombaYPlena"],
-    img: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=900&q=85",
+    img: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=900&q=85",
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80",
     likes: 1204,
     duration: "15 min",
@@ -54,7 +54,7 @@ const stories = [
     badge: "Tour Guide",
     category: "History",
     tags: ["#HiddenGem", "#IsladeCabras", "#Cataño"],
-    img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=900&q=85",
+    img: "https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=900&q=85",
     avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&q=80",
     likes: 2341,
     duration: "10 min",
@@ -66,7 +66,7 @@ const stories = [
     badge: "Nonprofit",
     category: "Events",
     tags: ["#FestivalBahía", "#ComunidadCataño", "#Events"],
-    img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=900&q=85",
+    img: "https://images.unsplash.com/photo-1504681869696-d977211a5e39?w=900&q=85",
     avatar: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=80&q=80",
     likes: 558,
     duration: "6 min",
@@ -96,8 +96,8 @@ function StoriesScreen() {
 
         {/* Featured collection */}
         <div className="mb-6 overflow-hidden rounded-2xl bg-white shadow-sm flex" style={{ border: "1px solid #EDE7D9" }}>
-          <img src="https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=300&q=80"
-            alt="Oral histories collection" className="w-28 object-cover flex-shrink-0" />
+          <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&q=80"
+            alt="San Juan Bay oral history collection" className="w-28 object-cover flex-shrink-0" />
           <div className="p-4 flex flex-col justify-center">
             <p className="eyebrow mb-1">This Month</p>
             <h2 className="font-display text-lg font-semibold italic" style={{ color: "#0060A0" }}>Oral Histories of Old San Juan Bay</h2>

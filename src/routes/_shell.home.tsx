@@ -69,9 +69,9 @@ const events = [
 
 // Hidden gems — real Cataño/PR attractions
 const gems = [
-  { name: "Isla de Cabras",        dist: "3.1 km", desc: "Historic island with colonial ruins and swimming",  img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=85" },
+  { name: "Isla de Cabras",        dist: "3.1 km", desc: "Historic island with colonial ruins and swimming",  img: "https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=600&q=85" },
   { name: "El Morro Fortress",     dist: "4.2 km", desc: "16th-century Spanish citadel, UNESCO heritage",      img: "https://images.unsplash.com/photo-1583398701142-37bd2d3f9d49?w=600&q=85" },
-  { name: "Old San Juan Streets",  dist: "5.0 km", desc: "Cobblestone streets, colorful colonial architecture", img: "https://images.unsplash.com/photo-1599413987323-2f7edc9c9c4d?w=600&q=85" },
+  { name: "Old San Juan Streets",  dist: "5.0 km", desc: "Cobblestone streets, colorful colonial architecture", img: "https://images.unsplash.com/photo-1569949381669-ecf31ae8e613?w=600&q=85" },
 ];
 
 // ── Component ─────────────────────────────────────────────────────
