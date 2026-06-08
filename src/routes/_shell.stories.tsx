@@ -18,7 +18,7 @@ const stories = [
     badge: "Local Elder",
     category: "Elders",
     tags: ["#FamilyHistory", "#CatañoProud", "#OralHistory"],
-    img: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=900&q=85",
+    img: "/photos/bio-bay-kayak.png",
     avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&q=80",
     likes: 847,
     duration: "8 min",
@@ -96,7 +96,7 @@ function StoriesScreen() {
 
         {/* Featured collection */}
         <div className="mb-6 overflow-hidden rounded-2xl bg-white shadow-sm flex" style={{ border: "1px solid #EDE7D9" }}>
-          <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&q=80"
+          <img src="/photos/old-san-juan.png"
             alt="San Juan Bay oral history collection" className="w-28 object-cover flex-shrink-0" />
           <div className="p-4 flex flex-col justify-center">
             <p className="eyebrow mb-1">This Month</p>

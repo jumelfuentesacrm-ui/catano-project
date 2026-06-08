@@ -25,7 +25,7 @@ const places = [
     desc: "The public ferry connecting Cataño to Old San Juan runs every 30 minutes. Fare: $0.75.",
     hours: "6am – 10pm daily",
     phone: "+1 787 729-8714",
-    img: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&q=80",
+    img: "/photos/bio-bay-kayak.png",
     x: "32%", y: "44%",
   },
   {

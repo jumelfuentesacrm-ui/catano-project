@@ -4,7 +4,7 @@ const cats = ["All", "🏄 Water", "🌿 Eco", "🎨 Culture", "🧘 Wellness", 
 const experiences = [{
   title: "Bioluminescent Bay Night Kayak",
   desc: "Paddle through Laguna Grande in Fajardo, where microorganisms glow neon blue in the water around your kayak.",
-  img: "https://images.unsplash.com/photo-1504701954957-2010ec3bcec1?w=800&q=85",
+  img: "/photos/bio-bay-kayak.png",
   dur: "3 hr",
   grp: "8 max",
   price: "$72",
@@ -64,7 +64,7 @@ const experiences = [{
 }, {
   title: "Bomba y Plena Cultural Workshop",
   desc: "Learn the African-rooted rhythms of bomba with a master drummer in Cataño. Includes a short performance and dance session.",
-  img: "https://images.unsplash.com/photo-1547153760-18fc86324498?w=800&q=85",
+  img: "/photos/bomba-plena.png",
   dur: "2 hr",
   grp: "15 max",
   price: "$45",
@@ -282,7 +282,7 @@ function AdventuresScreen() {
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mt-5 overflow-hidden rounded-2xl relative", style: {
         height: 110
       }, children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: "https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=900&q=80", alt: "Build custom itinerary", className: "absolute inset-0 w-full h-full object-cover" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: "/photos/pr-festival.png", alt: "Build custom itinerary — Puerto Rico festivals and experiences", className: "absolute inset-0 w-full h-full object-cover" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0", style: {
           background: "rgba(0,60,106,0.82)"
         } }),

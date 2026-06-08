@@ -37,7 +37,7 @@ const popularRoutes = [
     to: "Old San Juan / Cataño",
     price: "$18",
     time: "20 min",
-    img: "https://images.unsplash.com/photo-1548574505-5e239809ee19?w=600&q=80",
+    img: "/photos/old-san-juan.png",
     note: "Shuttle & water taxi options",
   },
   {
@@ -45,7 +45,7 @@ const popularRoutes = [
     to: "Old San Juan (Ferry)",
     price: "$0.75",
     time: "10 min",
-    img: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&q=80",
+    img: "/photos/bio-bay-kayak.png",
     note: "Public ferry — runs every 30 min",
   },
   {
@@ -132,8 +132,8 @@ function GetAroundScreen() {
 
         {/* Group discount banner */}
         <div className="mb-8 overflow-hidden rounded-2xl relative" style={{ height: 120 }}>
-          <img src="https://images.unsplash.com/photo-1519671282429-b44b2802040e?w=900&q=80"
-            alt="Group transport" className="absolute inset-0 w-full h-full object-cover" />
+          <img src="/photos/pr-festival.png"
+            alt="Group transport — Puerto Rico festivals and events" className="absolute inset-0 w-full h-full object-cover" />
           <div className="absolute inset-0" style={{ background: "rgba(26,107,60,0.82)" }} />
           <div className="relative flex items-center justify-between h-full px-5">
             <div>
