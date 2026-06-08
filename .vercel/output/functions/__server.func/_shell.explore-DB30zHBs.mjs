@@ -3,11 +3,11 @@ import { k as Search, l as Building2, L as Landmark, F as Footprints, m as Bike,
 const layers = [{
   Icon: Building2,
   label: "Businesses",
-  active_color: "#0A3D62"
+  active_color: "#0060A0"
 }, {
   Icon: Landmark,
   label: "Landmarks",
-  active_color: "#C89A30"
+  active_color: "#D4970A"
 }, {
   Icon: Footprints,
   label: "Walking",
@@ -19,7 +19,7 @@ const layers = [{
 }, {
   Icon: Sailboat,
   label: "Ferry",
-  active_color: "#0A3D62"
+  active_color: "#0060A0"
 }, {
   Icon: CalendarDays,
   label: "Events",
@@ -84,7 +84,7 @@ function ExploreScreen() {
       /* @__PURE__ */ jsxRuntimeExports.jsxs("svg", { className: "absolute inset-0 w-full h-full", style: {
         opacity: 0.08
       }, xmlns: "http://www.w3.org/2000/svg", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("defs", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("pattern", { id: "mapgrid", width: "48", height: "48", patternUnits: "userSpaceOnUse", children: /* @__PURE__ */ jsxRuntimeExports.jsx("path", { d: "M 48 0 L 0 0 0 48", fill: "none", stroke: "#0A3D62", strokeWidth: "0.8" }) }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("defs", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("pattern", { id: "mapgrid", width: "48", height: "48", patternUnits: "userSpaceOnUse", children: /* @__PURE__ */ jsxRuntimeExports.jsx("path", { d: "M 48 0 L 0 0 0 48", fill: "none", stroke: "#0060A0", strokeWidth: "0.8" }) }) }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("rect", { width: "100%", height: "100%", fill: "url(#mapgrid)" })
       ] }),
       places.map((p) => /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { onClick: () => setSelectedPlace(p), className: "absolute flex flex-col items-center transition-transform hover:scale-110", style: {
@@ -93,7 +93,7 @@ function ExploreScreen() {
         transform: "translateX(-50%)"
       }, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-9 w-9 rounded-full flex items-center justify-center shadow-md text-white text-xs font-bold", style: {
-          background: selectedPlace?.name === p.name ? "#C89A30" : "#0A3D62",
+          background: selectedPlace?.name === p.name ? "#D4970A" : "#0060A0",
           border: "3px solid white"
         }, children: p.name[0] }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-1 px-2 py-0.5 rounded-full whitespace-nowrap", style: {
@@ -104,7 +104,7 @@ function ExploreScreen() {
           fontWeight: 700,
           letterSpacing: "0.08em",
           textTransform: "uppercase",
-          color: "#0A3D62"
+          color: "#0060A0"
         }, children: p.name })
       ] }, p.name)),
       futureCities.map((c, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute flex flex-col items-center", style: {
@@ -113,10 +113,10 @@ function ExploreScreen() {
         opacity: 0.45
       }, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-6 w-6 rounded-full flex items-center justify-center", style: {
-          border: "2px dashed #C89A30",
+          border: "2px dashed #D4970A",
           background: "rgba(255,255,255,0.7)"
         }, children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-1.5 w-1.5 rounded-full", style: {
-          background: "#C89A30"
+          background: "#D4970A"
         } }) }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: {
           fontFamily: "Barlow Condensed",
@@ -130,7 +130,7 @@ function ExploreScreen() {
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: {
           fontFamily: "Montserrat",
           fontSize: "0.5rem",
-          color: "#C89A30"
+          color: "#D4970A"
         }, children: "2026" })
       ] }, c)),
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute top-4 left-4 right-4 z-10", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3 rounded-2xl px-4 py-3 shadow-md", style: {
@@ -138,7 +138,7 @@ function ExploreScreen() {
         backdropFilter: "blur(12px)",
         border: "1px solid #E5DDD0"
       }, children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Search, { size: 16, color: "#C89A30" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Search, { size: 16, color: "#D4970A" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: {
           fontFamily: "Montserrat",
           fontSize: "0.8rem",
@@ -211,7 +211,7 @@ function ExploreScreen() {
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-5", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "eyebrow mb-1", children: "3D Digital Twin" }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { className: "font-display text-2xl font-light italic", style: {
-          color: "#0A3D62"
+          color: "#0060A0"
         }, children: [
           "Explore ",
           /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { className: "not-italic font-semibold", children: "Cataño" })
@@ -228,7 +228,7 @@ function ExploreScreen() {
         borderTop: "1px solid #F0EBE1"
       }, children: places.map((p) => /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { onClick: () => setSelectedPlace(p), className: "w-full text-left flex gap-3 p-4 transition-all hover:bg-amber-50", style: selectedPlace?.name === p.name ? {
         background: "#FBF6EC",
-        borderLeft: "3px solid #C89A30"
+        borderLeft: "3px solid #D4970A"
       } : {
         borderLeft: "3px solid transparent",
         borderBottom: "1px solid #F5F0E8"
@@ -249,7 +249,7 @@ function ExploreScreen() {
             p.hours
           ] })
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(MapPin, { size: 14, color: selectedPlace?.name === p.name ? "#C89A30" : "#C5B8A8", className: "flex-shrink-0 mt-1" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx(MapPin, { size: 14, color: selectedPlace?.name === p.name ? "#D4970A" : "#C5B8A8", className: "flex-shrink-0 mt-1" })
       ] }, p.name)) }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-5", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "eyebrow mb-3", children: "Expanding to Puerto Rico" }),

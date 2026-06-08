@@ -52,11 +52,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:title", content: "Spirit of Puerto Rico" },
       { property: "og:description", content: "Your gateway to authentic Puerto Rico." },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: "/logo-original.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
+      { rel: "icon", href: "/logo-original.jpg", type: "image/jpeg" },
       { rel: "icon", href: "/favicon.ico" },
       { rel: "manifest", href: "/site.webmanifest" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },

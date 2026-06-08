@@ -87,7 +87,7 @@ function StoriesScreen() {
         <div className="absolute inset-0 overlay-hero" />
         <div className="absolute inset-0 overlay-left" />
         <div className="absolute bottom-0 inset-x-0 px-5 pb-6 lg:px-8">
-          <p className="eyebrow mb-1" style={{ color: "#D4A840" }}>Community Storytelling Network</p>
+          <p className="eyebrow mb-1" style={{ color: "#D4970A" }}>Community Storytelling Network</p>
           <h1 className="font-display text-3xl font-light italic text-white">Stories of <strong className="not-italic font-semibold">Puerto Rico</strong></h1>
         </div>
       </div>
@@ -100,7 +100,7 @@ function StoriesScreen() {
             alt="Oral histories collection" className="w-28 object-cover flex-shrink-0" />
           <div className="p-4 flex flex-col justify-center">
             <p className="eyebrow mb-1">This Month</p>
-            <h2 className="font-display text-lg font-semibold italic" style={{ color: "#0A3D62" }}>Oral Histories of Old San Juan Bay</h2>
+            <h2 className="font-display text-lg font-semibold italic" style={{ color: "#0060A0" }}>Oral Histories of Old San Juan Bay</h2>
             <p style={{ fontFamily: "Montserrat", fontSize: "0.7rem", color: "#8A7B6A", marginTop: 4 }}>18 stories · curated by Spirit of Puerto Rico</p>
           </div>
         </div>
@@ -110,7 +110,7 @@ function StoriesScreen() {
           {filters.map((f) => (
             <button key={f} onClick={() => setActive(f)} className="chip whitespace-nowrap transition-all"
               style={active === f
-                ? { background: "#0A3D62", color: "#FAF8F3" }
+                ? { background: "#0060A0", color: "#FAF8F3" }
                 : { background: "white", color: "#5A4A38", border: "1px solid #E5DDD0" }
               }>{f}</button>
           ))}
@@ -132,7 +132,7 @@ function StoriesScreen() {
                   </div>
                 </button>
                 <div className="absolute top-3 left-3 flex items-center gap-2">
-                  <span className="chip" style={{ background: "rgba(255,255,255,0.92)", color: "#0A3D62" }}>{s.badge}</span>
+                  <span className="chip" style={{ background: "rgba(255,255,255,0.92)", color: "#0060A0" }}>{s.badge}</span>
                 </div>
                 <div className="absolute bottom-3 right-3 flex items-center gap-1 chip"
                   style={{ background: "rgba(0,0,0,0.5)", color: "white", backdropFilter: "blur(4px)" }}>
@@ -146,7 +146,7 @@ function StoriesScreen() {
                     style={{ border: "2px solid #EDE7D9" }} />
                   <div>
                     <p style={{ fontFamily: "Montserrat", fontSize: "0.78rem", fontWeight: 600, color: "#1A1612" }}>{s.creator}</p>
-                    <p style={{ fontFamily: "Barlow Condensed", fontSize: "0.62rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "#C89A30" }}>{s.badge}</p>
+                    <p style={{ fontFamily: "Barlow Condensed", fontSize: "0.62rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "#D4970A" }}>{s.badge}</p>
                   </div>
                 </div>
                 <h3 className="font-display text-xl font-semibold" style={{ color: "#1A1612", lineHeight: 1.25 }}>{s.title}</h3>
@@ -180,10 +180,10 @@ function StoriesScreen() {
         <div className="mt-8 overflow-hidden rounded-2xl relative" style={{ height: 120 }}>
           <img src="https://images.unsplash.com/photo-1599413987323-2f7edc9c9c4d?w=900&q=80"
             alt="Share your story" className="absolute inset-0 w-full h-full object-cover" />
-          <div className="absolute inset-0" style={{ background: "rgba(10,61,98,0.82)" }} />
+          <div className="absolute inset-0" style={{ background: "rgba(0,60,106,0.82)" }} />
           <div className="relative flex items-center justify-between h-full px-6">
             <div>
-              <p className="eyebrow mb-0.5" style={{ color: "#D4A840" }}>Your Turn</p>
+              <p className="eyebrow mb-0.5" style={{ color: "#D4970A" }}>Your Turn</p>
               <p className="font-display text-xl italic text-white">Share your Puerto Rico story</p>
             </div>
             <button className="btn-gold flex-shrink-0"><Plus size={14} /> Upload</button>

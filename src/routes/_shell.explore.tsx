@@ -8,11 +8,11 @@ export const Route = createFileRoute("/_shell/explore")({
 });
 
 const layers = [
-  { Icon: Building2,   label: "Businesses", active_color: "#0A3D62" },
-  { Icon: Landmark,    label: "Landmarks",  active_color: "#C89A30" },
+  { Icon: Building2,   label: "Businesses", active_color: "#0060A0" },
+  { Icon: Landmark,    label: "Landmarks",  active_color: "#D4970A" },
   { Icon: Footprints,  label: "Walking",    active_color: "#1A6B3C" },
   { Icon: Bike,        label: "Bike",       active_color: "#C0392B" },
-  { Icon: Sailboat,    label: "Ferry",      active_color: "#0A3D62" },
+  { Icon: Sailboat,    label: "Ferry",      active_color: "#0060A0" },
   { Icon: CalendarDays,label: "Events",     active_color: "#6B3FA0" },
   { Icon: Sparkles,    label: "Future",     active_color: "#8A7B6A" },
 ];
@@ -83,7 +83,7 @@ function ExploreScreen() {
         <svg className="absolute inset-0 w-full h-full" style={{ opacity: 0.08 }} xmlns="http://www.w3.org/2000/svg">
           <defs>
             <pattern id="mapgrid" width="48" height="48" patternUnits="userSpaceOnUse">
-              <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#0A3D62" strokeWidth="0.8"/>
+              <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#0060A0" strokeWidth="0.8"/>
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill="url(#mapgrid)" />
@@ -96,11 +96,11 @@ function ExploreScreen() {
             style={{ left: p.x, top: p.y, transform: "translateX(-50%)" }}
           >
             <div className="h-9 w-9 rounded-full flex items-center justify-center shadow-md text-white text-xs font-bold"
-              style={{ background: selectedPlace?.name === p.name ? "#C89A30" : "#0A3D62", border: "3px solid white" }}>
+              style={{ background: selectedPlace?.name === p.name ? "#D4970A" : "#0060A0", border: "3px solid white" }}>
               {p.name[0]}
             </div>
             <div className="mt-1 px-2 py-0.5 rounded-full whitespace-nowrap"
-              style={{ background: "rgba(255,255,255,0.92)", backdropFilter: "blur(6px)", fontFamily: "Barlow Condensed", fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#0A3D62" }}>
+              style={{ background: "rgba(255,255,255,0.92)", backdropFilter: "blur(6px)", fontFamily: "Barlow Condensed", fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "#0060A0" }}>
               {p.name}
             </div>
           </button>
@@ -111,11 +111,11 @@ function ExploreScreen() {
           <div key={c} className="absolute flex flex-col items-center"
             style={{ left: `${14 + i * 15}%`, bottom: `${12 + (i % 2) * 7}%`, opacity: 0.45 }}>
             <div className="h-6 w-6 rounded-full flex items-center justify-center"
-              style={{ border: "2px dashed #C89A30", background: "rgba(255,255,255,0.7)" }}>
-              <div className="h-1.5 w-1.5 rounded-full" style={{ background: "#C89A30" }} />
+              style={{ border: "2px dashed #D4970A", background: "rgba(255,255,255,0.7)" }}>
+              <div className="h-1.5 w-1.5 rounded-full" style={{ background: "#D4970A" }} />
             </div>
             <span style={{ fontFamily: "Barlow Condensed", fontSize: "0.55rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "#5A4A38", marginTop: 2 }}>{c}</span>
-            <span style={{ fontFamily: "Montserrat", fontSize: "0.5rem", color: "#C89A30" }}>2026</span>
+            <span style={{ fontFamily: "Montserrat", fontSize: "0.5rem", color: "#D4970A" }}>2026</span>
           </div>
         ))}
 
@@ -123,7 +123,7 @@ function ExploreScreen() {
         <div className="absolute top-4 left-4 right-4 z-10">
           <div className="flex items-center gap-3 rounded-2xl px-4 py-3 shadow-md"
             style={{ background: "rgba(255,255,255,0.96)", backdropFilter: "blur(12px)", border: "1px solid #E5DDD0" }}>
-            <Search size={16} color="#C89A30" />
+            <Search size={16} color="#D4970A" />
             <span style={{ fontFamily: "Montserrat", fontSize: "0.8rem", color: "#9A8A78" }}>Search Cataño — places, landmarks, businesses…</span>
           </div>
         </div>
@@ -179,7 +179,7 @@ function ExploreScreen() {
       <div className="lg:w-80 bg-white overflow-y-auto flex-shrink-0" style={{ borderLeft: "1px solid #E5DDD0" }}>
         <div className="p-5">
           <p className="eyebrow mb-1">3D Digital Twin</p>
-          <h2 className="font-display text-2xl font-light italic" style={{ color: "#0A3D62" }}>Explore <strong className="not-italic font-semibold">Cataño</strong></h2>
+          <h2 className="font-display text-2xl font-light italic" style={{ color: "#0060A0" }}>Explore <strong className="not-italic font-semibold">Cataño</strong></h2>
           <p style={{ fontFamily: "Montserrat", fontSize: "0.72rem", color: "#8A7B6A", marginTop: 4, lineHeight: 1.5 }}>
             Interactive model of Cataño with businesses, landmarks, routes and future development.
           </p>
@@ -189,7 +189,7 @@ function ExploreScreen() {
           {places.map((p) => (
             <button key={p.name} onClick={() => setSelectedPlace(p)}
               className="w-full text-left flex gap-3 p-4 transition-all hover:bg-amber-50"
-              style={selectedPlace?.name === p.name ? { background: "#FBF6EC", borderLeft: "3px solid #C89A30" } : { borderLeft: "3px solid transparent", borderBottom: "1px solid #F5F0E8" }}>
+              style={selectedPlace?.name === p.name ? { background: "#FBF6EC", borderLeft: "3px solid #D4970A" } : { borderLeft: "3px solid transparent", borderBottom: "1px solid #F5F0E8" }}>
               <img src={p.img} alt={p.name} className="h-14 w-16 rounded-xl object-cover flex-shrink-0" />
               <div className="flex-1 min-w-0">
                 <p className="eyebrow mb-0.5">{p.cat}</p>
@@ -198,7 +198,7 @@ function ExploreScreen() {
                   <Clock size={9} />{p.hours}
                 </div>
               </div>
-              <MapPin size={14} color={selectedPlace?.name === p.name ? "#C89A30" : "#C5B8A8"} className="flex-shrink-0 mt-1" />
+              <MapPin size={14} color={selectedPlace?.name === p.name ? "#D4970A" : "#C5B8A8"} className="flex-shrink-0 mt-1" />
             </button>
           ))}
         </div>

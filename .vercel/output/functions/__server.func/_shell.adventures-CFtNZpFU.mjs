@@ -96,7 +96,7 @@ function AdventuresScreen() {
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 overlay-left" }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute bottom-0 inset-x-0 px-5 pb-6 lg:px-8", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "eyebrow mb-1", style: {
-          color: "#D4A840"
+          color: "#D4970A"
         }, children: "Adventure & Experience Marketplace" }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("h1", { className: "font-display text-3xl font-light italic text-white", children: [
           "Island ",
@@ -112,7 +112,7 @@ function AdventuresScreen() {
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "px-4 py-6 lg:px-8", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "no-scrollbar flex gap-2 overflow-x-auto pb-3 mb-6", children: cats.map((c) => /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => setActiveCat(c), className: "chip whitespace-nowrap transition-all", style: activeCat === c ? {
-        background: "#0A3D62",
+        background: "#0060A0",
         color: "#FAF8F3"
       } : {
         background: "white",
@@ -127,7 +127,7 @@ function AdventuresScreen() {
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 overlay-hero" }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute bottom-0 inset-x-0 p-7", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "chip mb-3 inline-block", style: {
-            background: "rgba(212,168,64,0.92)",
+            background: "rgba(212,151,10,0.92)",
             color: "#1A0A00"
           }, children: "⭐ Featured Experience" }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { className: "font-display text-3xl font-light italic text-white leading-tight", style: {
@@ -138,7 +138,7 @@ function AdventuresScreen() {
           ] }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-4 mt-3 flex-wrap", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-1.5", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx(Star, { size: 13, fill: "#D4A840", color: "#D4A840" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(Star, { size: 13, fill: "#D4970A", color: "#D4970A" }),
               /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: {
                 fontFamily: "Montserrat",
                 fontSize: "0.75rem",
@@ -195,7 +195,7 @@ function AdventuresScreen() {
           }, children: "🔥 Popular" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute top-3 right-3 chip", style: {
             background: "rgba(255,255,255,0.92)",
-            color: "#0A3D62"
+            color: "#0060A0"
           }, children: e.cat.split(" ")[1] || e.cat })
         ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-4", children: [
@@ -216,7 +216,7 @@ function AdventuresScreen() {
               fontSize: "0.68rem",
               color: "#8A7B6A"
             }, children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx(Star, { size: 11, fill: "#C89A30", color: "#C89A30" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(Star, { size: 11, fill: "#D4970A", color: "#D4970A" }),
               " ",
               e.rating
             ] }),
@@ -243,7 +243,7 @@ function AdventuresScreen() {
             borderTop: "1px solid #F0EBE1"
           }, children: [
             /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "font-display text-2xl font-light", style: {
-              color: "#0A3D62"
+              color: "#0060A0"
             }, children: [
               e.price,
               " ",
@@ -268,7 +268,7 @@ function AdventuresScreen() {
             /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "eyebrow", children: "Group Pricing" })
           ] }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-display text-xl font-semibold italic", style: {
-            color: "#0A3D62"
+            color: "#0060A0"
           }, children: "Groups of 6+ save up to 20%" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: {
             fontFamily: "Montserrat",
@@ -284,12 +284,12 @@ function AdventuresScreen() {
       }, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: "https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=900&q=80", alt: "Build custom itinerary", className: "absolute inset-0 w-full h-full object-cover" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0", style: {
-          background: "rgba(10,61,98,0.82)"
+          background: "rgba(0,60,106,0.82)"
         } }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative flex items-center justify-between h-full px-6", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "eyebrow mb-0.5", style: {
-              color: "#D4A840"
+              color: "#D4970A"
             }, children: "Build Your Journey" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-display text-xl italic text-white", children: "Custom multi-day itinerary →" })
           ] }),

@@ -15,7 +15,7 @@ import "../_libs/cookie-es.mjs";
 import "../_libs/seroval.mjs";
 import "../_libs/seroval-plugins.mjs";
 import "node:stream/web";
-const appCss = "/assets/styles-DcTyesm6.css";
+const appCss = "/assets/styles-CDXDdEOs.css";
 function reportLovableError(error, context = {}) {
   if (typeof window === "undefined") return;
   window.__lovableEvents?.captureException?.(
@@ -67,11 +67,12 @@ const Route$7 = createRootRouteWithContext()({
       { property: "og:title", content: "Spirit of Puerto Rico" },
       { property: "og:description", content: "Your gateway to authentic Puerto Rico." },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: "/logo-original.jpg" },
       { name: "twitter:card", content: "summary_large_image" }
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
+      { rel: "icon", href: "/logo-original.jpg", type: "image/jpeg" },
       { rel: "icon", href: "/favicon.ico" },
       { rel: "manifest", href: "/site.webmanifest" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -97,14 +98,14 @@ function RootComponent() {
   const { queryClient } = Route$7.useRouteContext();
   return /* @__PURE__ */ jsxRuntimeExports.jsx(QueryClientProvider, { client: queryClient, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {}) });
 }
-const $$splitComponentImporter$5 = () => import("../_shell-NzFZDFUP.mjs");
+const $$splitComponentImporter$5 = () => import("../_shell-BRC92mZe.mjs");
 const Route$6 = createFileRoute("/_shell")({
   component: lazyRouteComponent($$splitComponentImporter$5, "component")
 });
 const Route$5 = createFileRoute("/")({ beforeLoad: () => {
   throw redirect({ to: "/home" });
 } });
-const $$splitComponentImporter$4 = () => import("../_shell.stories-BvLikD4T.mjs");
+const $$splitComponentImporter$4 = () => import("../_shell.stories-Buv75C_O.mjs");
 const Route$4 = createFileRoute("/_shell/stories")({
   head: () => ({
     meta: [{
@@ -113,7 +114,7 @@ const Route$4 = createFileRoute("/_shell/stories")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$4, "component")
 });
-const $$splitComponentImporter$3 = () => import("../_shell.home-BpkjTtXS.mjs");
+const $$splitComponentImporter$3 = () => import("../_shell.home-BdAOhR3L.mjs");
 const Route$3 = createFileRoute("/_shell/home")({
   head: () => ({
     meta: [{
@@ -125,7 +126,7 @@ const Route$3 = createFileRoute("/_shell/home")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$3, "component")
 });
-const $$splitComponentImporter$2 = () => import("../_shell.get-around-DaZvKexa.mjs");
+const $$splitComponentImporter$2 = () => import("../_shell.get-around-BN9pc1_E.mjs");
 const Route$2 = createFileRoute("/_shell/get-around")({
   head: () => ({
     meta: [{
@@ -134,7 +135,7 @@ const Route$2 = createFileRoute("/_shell/get-around")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$2, "component")
 });
-const $$splitComponentImporter$1 = () => import("../_shell.explore-B2MKf_j6.mjs");
+const $$splitComponentImporter$1 = () => import("../_shell.explore-DB30zHBs.mjs");
 const Route$1 = createFileRoute("/_shell/explore")({
   head: () => ({
     meta: [{
@@ -143,7 +144,7 @@ const Route$1 = createFileRoute("/_shell/explore")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$1, "component")
 });
-const $$splitComponentImporter = () => import("../_shell.adventures-B5RQQ1xn.mjs");
+const $$splitComponentImporter = () => import("../_shell.adventures-CFtNZpFU.mjs");
 const Route = createFileRoute("/_shell/adventures")({
   head: () => ({
     meta: [{

@@ -71,7 +71,7 @@ function StoriesScreen() {
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 overlay-left" }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute bottom-0 inset-x-0 px-5 pb-6 lg:px-8", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "eyebrow mb-1", style: {
-          color: "#D4A840"
+          color: "#D4970A"
         }, children: "Community Storytelling Network" }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("h1", { className: "font-display text-3xl font-light italic text-white", children: [
           "Stories of ",
@@ -87,7 +87,7 @@ function StoriesScreen() {
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-4 flex flex-col justify-center", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "eyebrow mb-1", children: "This Month" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-display text-lg font-semibold italic", style: {
-            color: "#0A3D62"
+            color: "#0060A0"
           }, children: "Oral Histories of Old San Juan Bay" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: {
             fontFamily: "Montserrat",
@@ -98,7 +98,7 @@ function StoriesScreen() {
         ] })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "no-scrollbar flex gap-2 overflow-x-auto pb-3 mb-6", children: filters.map((f) => /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => setActive(f), className: "chip whitespace-nowrap transition-all", style: active === f ? {
-        background: "#0A3D62",
+        background: "#0060A0",
         color: "#FAF8F3"
       } : {
         background: "white",
@@ -120,7 +120,7 @@ function StoriesScreen() {
           }, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Play, { size: 20, fill: "white", strokeWidth: 0, className: "ml-0.5" }) }) }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute top-3 left-3 flex items-center gap-2", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "chip", style: {
             background: "rgba(255,255,255,0.92)",
-            color: "#0A3D62"
+            color: "#0060A0"
           }, children: s.badge }) }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute bottom-3 right-3 flex items-center gap-1 chip", style: {
             background: "rgba(0,0,0,0.5)",
@@ -150,7 +150,7 @@ function StoriesScreen() {
                 fontWeight: 600,
                 letterSpacing: "0.1em",
                 textTransform: "uppercase",
-                color: "#C89A30"
+                color: "#D4970A"
               }, children: s.badge })
             ] })
           ] }),
@@ -203,12 +203,12 @@ function StoriesScreen() {
       }, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: "https://images.unsplash.com/photo-1599413987323-2f7edc9c9c4d?w=900&q=80", alt: "Share your story", className: "absolute inset-0 w-full h-full object-cover" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0", style: {
-          background: "rgba(10,61,98,0.82)"
+          background: "rgba(0,60,106,0.82)"
         } }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative flex items-center justify-between h-full px-6", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "eyebrow mb-0.5", style: {
-              color: "#D4A840"
+              color: "#D4970A"
             }, children: "Your Turn" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-display text-xl italic text-white", children: "Share your Puerto Rico story" })
           ] }),

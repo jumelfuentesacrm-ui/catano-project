@@ -14,87 +14,94 @@
   --radius-2xl: 24px;
   --radius-3xl: 32px;
 
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
+  --color-background:    var(--background);
+  --color-foreground:    var(--foreground);
+  --color-card:          var(--card);
   --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-border: var(--border);
-  --color-ring: var(--ring);
+  --color-primary:       var(--primary);
+  --color-primary-foreground: var(--primary-fg);
+  --color-secondary:     var(--secondary);
+  --color-muted:         var(--muted);
+  --color-muted-foreground: var(--muted-fg);
+  --color-accent:        var(--accent);
+  --color-border:        var(--border);
+  --color-ring:          var(--gold);
 
-  --color-gold: var(--gold);
-  --color-gold-fg: var(--gold-fg);
-  --color-ocean: var(--ocean);
-  --color-ocean-fg: var(--ocean-fg);
-  --color-coral: var(--coral);
-  --color-jungle: var(--jungle);
+  /* Logo-extracted brand colors */
+  --color-gold:          var(--gold);
+  --color-ocean:         var(--ocean);
+  --color-brown:         var(--brown);
 
   --font-display: "Cormorant Garamond", ui-serif, Georgia, serif;
   --font-sans:    "Montserrat", ui-sans-serif, system-ui, sans-serif;
   --font-accent:  "Barlow Condensed", ui-sans-serif, system-ui, sans-serif;
 
-  --shadow-sm:   0 1px 4px 0 rgb(0 0 0 / 0.06);
-  --shadow-md:   0 4px 16px -2px rgb(0 0 0 / 0.10), 0 1px 4px -1px rgb(0 0 0 / 0.06);
-  --shadow-warm: 0 8px 32px -6px rgb(180 120 40 / 0.14), 0 2px 8px -2px rgb(0 0 0 / 0.06);
-  --shadow-glow: 0 0 32px -4px rgb(210 155 40 / 0.35);
+  --shadow-sm:   0 1px 4px 0 rgb(0 0 0 / 0.07);
+  --shadow-md:   0 4px 18px -2px rgb(0 0 0 / 0.10), 0 1px 4px -1px rgb(0 0 0 / 0.06);
+  --shadow-warm: 0 8px 32px -6px rgb(128 80 0 / 0.16), 0 2px 8px -2px rgb(0 0 0 / 0.06);
+  --shadow-glow: 0 0 28px -4px rgb(224 160 0 / 0.40);
 }
 
-/* ── Spirit of Puerto Rico — Cream/White Light Theme ── */
+/* ─────────────────────────────────────────────
+   Spirit of Puerto Rico — Logo Color System
+   Logo colors:
+     Ocean blue  → #0060A0  (wave)
+     Gold/amber  → #E0A000  (sun rays)
+     Brown/earth → #804000  (Taíno face, roots)
+     Cream bg    → #FAF8F2
+───────────────────────────────────────────── */
 :root {
   --radius: 1rem;
 
-  /* Warm cream base */
-  --background:    #FAF8F3;
-  --foreground:    #1A1612;
+  /* Base */
+  --background:  #FAF8F2;
+  --foreground:  #2C1A08;
 
-  --card:          #FFFFFF;
-  --card-foreground: #1A1612;
-  --popover:       #FFFFFF;
-  --popover-foreground: #1A1612;
+  --card:        #FFFFFF;
+  --card-fg:     #2C1A08;
 
-  /* Deep ocean blue — primary CTA */
-  --primary:       #0A3D62;
-  --primary-foreground: #FAF8F3;
+  /* Primary = ocean blue from logo wave */
+  --primary:     #0060A0;
+  --primary-fg:  #FAF8F2;
 
-  --secondary:     #F2EDE3;
-  --secondary-foreground: #3D3020;
+  --secondary:   #F0EAD8;
+  --secondary-fg:#3D2810;
 
-  --muted:         #F0EBE1;
-  --muted-foreground: #8A7B6A;
+  --muted:       #EDE6D4;
+  --muted-fg:    #7A6448;
 
-  --accent:        #EDE7D9;
-  --accent-foreground: #2A1F10;
+  --accent:      #F5EDD8;
+  --accent-fg:   #2C1A08;
 
-  --border:        #E5DDD0;
-  --input:         #EDE7D9;
-  --ring:          #C89A30;
+  --border:      #E2D8C4;
+  --input:       #EAE2D0;
 
-  /* Brand palette */
-  --gold:          #C89A30;
-  --gold-fg:       #2A1800;
-  --ocean:         #0A3D62;
-  --ocean-fg:      #FAF8F3;
-  --coral:         #C0392B;
-  --jungle:        #1A6B3C;
+  /* ── Brand palette from logo ── */
+  /* Gold — sun rays #E0A000 */
+  --gold:        #D4970A;
+  --gold-light:  #F5E4A8;
+  --gold-dark:   #A87200;
 
-  /* Gradients */
-  --grad-gold:     linear-gradient(135deg, #D4A840 0%, #B8831E 100%);
-  --grad-ocean:    linear-gradient(160deg, #0A3D62 0%, #062540 100%);
-  --grad-hero:     linear-gradient(180deg, rgba(10,15,20,0.15) 0%, rgba(10,15,20,0.75) 100%);
-  --grad-card:     linear-gradient(180deg, transparent 30%, rgba(10,12,18,0.88) 100%);
-  --grad-left:     linear-gradient(100deg, rgba(10,15,20,0.82) 0%, rgba(10,15,20,0.20) 65%, transparent 100%);
+  /* Ocean blue — wave #0060A0 */
+  --ocean:       #0060A0;
+  --ocean-light: #DDEEFF;
+  --ocean-dark:  #004070;
+
+  /* Brown/earth — Taíno/roots #804000 */
+  --brown:       #7D4A12;
+  --brown-light: #F0E0C8;
+  --brown-dark:  #4A2A08;
+
+  /* ── Gradients ── */
+  --grad-gold:   linear-gradient(135deg, #E0A800 0%, #B87800 100%);
+  --grad-ocean:  linear-gradient(160deg, #0060A0 0%, #003C6A 100%);
+  --grad-brown:  linear-gradient(135deg, #9A5C18 0%, #5A3008 100%);
+  --grad-hero:   linear-gradient(180deg, rgba(20,10,0,0.10) 0%, rgba(20,10,0,0.78) 100%);
+  --grad-left:   linear-gradient(105deg, rgba(20,10,0,0.84) 0%, rgba(20,10,0,0.22) 65%, transparent 100%);
+  --grad-card:   linear-gradient(180deg, transparent 28%, rgba(20,10,0,0.90) 100%);
 }
 
-/* ── Utility ── */
+/* ── Base ── */
 body {
   background: var(--background);
   color: var(--foreground);
@@ -104,40 +111,41 @@ body {
 .font-display { font-family: var(--font-display); }
 .font-accent  { font-family: var(--font-accent); }
 
+/* ── Shadows ── */
 .shadow-sm   { box-shadow: var(--shadow-sm); }
 .shadow-md   { box-shadow: var(--shadow-md); }
 .shadow-warm { box-shadow: var(--shadow-warm); }
 .shadow-glow { box-shadow: var(--shadow-glow); }
 
-/* Eyebrow label */
+/* ── Eyebrow label ── */
 .eyebrow {
   font-family: var(--font-accent);
-  font-size: 0.625rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--gold);
 }
 
-/* Chip / badge */
+/* ── Chip / badge ── */
 .chip {
   display: inline-flex;
   align-items: center;
   font-family: var(--font-accent);
-  font-size: 0.625rem;
+  font-size: 0.6rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  padding: 0.28rem 0.7rem;
+  padding: 0.26rem 0.68rem;
   border-radius: 100px;
 }
 
-/* Photo card overlay — dark gradient from bottom */
+/* ── Photo overlays ── */
 .overlay-card { background: var(--grad-card); }
 .overlay-left { background: var(--grad-left); }
 .overlay-hero { background: var(--grad-hero); }
 
-/* Card hover lift */
+/* ── Card hover lift ── */
 .card-lift {
   transition: transform 0.22s ease, box-shadow 0.22s ease;
   cursor: pointer;
@@ -147,53 +155,49 @@ body {
   box-shadow: var(--shadow-warm);
 }
 
-/* Gold CTA button */
+/* ── Gold CTA ── */
 .btn-gold {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
   background: var(--grad-gold);
-  color: var(--gold-fg);
+  color: #2C1000;
   font-family: var(--font-accent);
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  padding: 0.7rem 1.4rem;
+  padding: 0.65rem 1.4rem;
   border-radius: 100px;
   border: none;
   cursor: pointer;
   transition: transform 0.18s ease, box-shadow 0.18s ease;
+  white-space: nowrap;
 }
-.btn-gold:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-glow);
-}
+.btn-gold:hover { transform: translateY(-2px); box-shadow: var(--shadow-glow); }
 
-/* Ocean outline button */
+/* ── Ocean outline ── */
 .btn-ocean {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
   background: transparent;
   color: var(--ocean);
   font-family: var(--font-accent);
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  padding: 0.68rem 1.4rem;
+  padding: 0.63rem 1.4rem;
   border-radius: 100px;
   border: 1.5px solid var(--ocean);
   cursor: pointer;
   transition: all 0.18s ease;
+  white-space: nowrap;
 }
-.btn-ocean:hover {
-  background: var(--ocean);
-  color: var(--ocean-fg);
-}
+.btn-ocean:hover { background: var(--ocean); color: var(--primary-fg); }
 
-/* Section heading */
+/* ── Section title ── */
 .section-title {
   font-family: var(--font-display);
   font-weight: 400;
@@ -201,32 +205,28 @@ body {
   color: var(--foreground);
   line-height: 1.1;
 }
-.section-title strong {
-  font-style: normal;
-  font-weight: 600;
-}
+.section-title strong { font-style: normal; font-weight: 600; }
 
-/* Scrollbar hidden */
+/* ── Scrollbar hidden ── */
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-/* Divider gold line */
+/* ── Gold divider ── */
 .divider-gold {
-  width: 36px;
-  height: 2px;
+  width: 36px; height: 2px;
   background: var(--grad-gold);
   border-radius: 2px;
 }
 
-/* Glass effect for nav */
+/* ── Glass nav ── */
 .glass-nav {
-  background: rgba(250, 248, 243, 0.92);
-  backdrop-filter: blur(20px) saturate(1.4);
-  -webkit-backdrop-filter: blur(20px) saturate(1.4);
-  border: 1px solid rgba(200, 154, 48, 0.18);
+  background: rgba(250,248,242,0.94);
+  backdrop-filter: blur(20px) saturate(1.5);
+  -webkit-backdrop-filter: blur(20px) saturate(1.5);
+  border: 1px solid rgba(212,151,10,0.15);
 }
 
-/* Section separator */
+/* ── Section sep ── */
 .section-sep {
   border: none;
   border-top: 1px solid var(--border);

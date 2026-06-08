@@ -88,7 +88,7 @@ function GetAroundScreen() {
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 overlay-left" }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute bottom-0 inset-x-0 px-5 pb-6 lg:px-8", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "eyebrow mb-1", style: {
-          color: "#D4A840"
+          color: "#D4970A"
         }, children: "Transportation Network" }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("h1", { className: "font-display text-3xl font-light italic text-white", children: [
           "Get ",
@@ -116,7 +116,7 @@ function GetAroundScreen() {
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3 rounded-xl p-3", style: {
           background: "#F5F0E8"
         }, children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(MapPin, { size: 12, color: "#C89A30", className: "flex-shrink-0" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(MapPin, { size: 12, color: "#D4970A", className: "flex-shrink-0" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: {
             fontFamily: "Montserrat",
             fontSize: "0.8rem",
@@ -131,7 +131,7 @@ function GetAroundScreen() {
           l,
           desc
         }) => /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { onClick: () => setSelected(l), className: "card-lift flex min-w-[88px] flex-col items-center gap-2 rounded-2xl py-3 px-2 transition-all bg-white", style: selected === l ? {
-          border: "2px solid #0A3D62",
+          border: "2px solid #0060A0",
           background: "#EEF4FA"
         } : {
           border: "1px solid #E5DDD0"
@@ -143,7 +143,7 @@ function GetAroundScreen() {
             fontWeight: 700,
             letterSpacing: "0.08em",
             textTransform: "uppercase",
-            color: selected === l ? "#0A3D62" : "#6A5A48",
+            color: selected === l ? "#0060A0" : "#6A5A48",
             textAlign: "center"
           }, children: l }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: {
@@ -166,7 +166,7 @@ function GetAroundScreen() {
               " · Estimated Fare"
             ] }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "font-display text-4xl font-light", style: {
-              color: "#0A3D62"
+              color: "#0060A0"
             }, children: "$12–18" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: {
               fontFamily: "Montserrat",
@@ -250,7 +250,7 @@ function GetAroundScreen() {
         ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2 pr-4 flex-shrink-0", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "font-display text-xl font-light", style: {
-            color: "#0A3D62"
+            color: "#0060A0"
           }, children: r.price }),
           /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronRight, { size: 16, color: "#C5B8A8" })
         ] })

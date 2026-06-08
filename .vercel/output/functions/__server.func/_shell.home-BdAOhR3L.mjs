@@ -3,7 +3,7 @@ import { P as Play, a as Car, b as Compass, M as Map, e as Calendar, U as Utensi
 const quickActions = [{
   Icon: Car,
   label: "Book a Ride",
-  color: "#0A3D62",
+  color: "#0060A0",
   bg: "#E8F0F8"
 }, {
   Icon: Compass,
@@ -13,7 +13,7 @@ const quickActions = [{
 }, {
   Icon: Map,
   label: "3D Map",
-  color: "#C89A30",
+  color: "#D4970A",
   bg: "#F8F1E0"
 }, {
   Icon: Calendar,
@@ -88,12 +88,30 @@ function HomeScreen() {
       /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: "https://images.unsplash.com/photo-1548574505-5e239809ee19?w=1400&q=90", alt: "Old San Juan and the bay of Cataño, Puerto Rico", className: "absolute inset-0 w-full h-full object-cover object-center" }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 overlay-hero" }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 overlay-left" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute top-0 inset-x-0 flex items-start justify-between px-5 pt-6 lg:px-8", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "eyebrow mb-0.5", style: {
-            color: "#D4A840"
-          }, children: "Spirit of" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "font-display text-3xl font-light italic text-white lg:text-4xl", children: "Puerto Rico" })
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute top-0 inset-x-0 flex items-center justify-between px-5 pt-5 lg:px-8", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: "/logo.png", alt: "Spirit of Puerto Rico", style: {
+            width: 48,
+            height: "auto",
+            filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.35))"
+          } }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: {
+              fontFamily: "Barlow Condensed",
+              fontSize: "0.55rem",
+              fontWeight: 700,
+              letterSpacing: "0.26em",
+              textTransform: "uppercase",
+              color: "#E0A800"
+            }, children: "Spirit of" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: {
+              fontFamily: "Cormorant Garamond",
+              fontSize: "1.35rem",
+              fontStyle: "italic",
+              color: "white",
+              lineHeight: 1.05
+            }, children: "Puerto Rico" })
+          ] })
         ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center gap-2 rounded-full px-3 py-1.5", style: {
           background: "rgba(255,255,255,0.15)",
@@ -109,7 +127,7 @@ function HomeScreen() {
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute bottom-0 inset-x-0 px-5 pb-8 lg:px-8", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "chip mb-3", style: {
-          background: "rgba(212,168,64,0.9)",
+          background: "rgba(212,151,10,0.9)",
           color: "#1A0A00"
         }, children: "Featured Story" }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { className: "font-display text-2xl font-light text-white leading-tight lg:text-3xl", style: {
@@ -126,7 +144,7 @@ function HomeScreen() {
           ] }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=56&q=80", alt: "Doña Mariela", className: "h-7 w-7 rounded-full object-cover", style: {
-              border: "2px solid #D4A840"
+              border: "2px solid #D4970A"
             } }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: {
               fontFamily: "Montserrat",
@@ -182,7 +200,7 @@ function HomeScreen() {
           /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 overlay-card" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "chip absolute top-3 left-3", style: {
             background: "rgba(255,255,255,0.92)",
-            color: "#0A3D62"
+            color: "#0060A0"
           }, children: s.tag })
         ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "p-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: {
@@ -215,12 +233,12 @@ function HomeScreen() {
           /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: e.img, alt: e.name, className: "w-full h-full object-cover" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 overlay-card" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "chip absolute top-3 left-3", style: {
-            background: "rgba(212,168,64,0.92)",
+            background: "rgba(212,151,10,0.92)",
             color: "#1A0A00"
           }, children: e.tag }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "chip absolute top-3 right-3", style: {
             background: e.price === "Free" ? "rgba(26,107,60,0.9)" : "rgba(255,255,255,0.92)",
-            color: e.price === "Free" ? "white" : "#0A3D62"
+            color: e.price === "Free" ? "white" : "#0060A0"
           }, children: e.price })
         ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-4", children: [
@@ -255,12 +273,12 @@ function HomeScreen() {
       }, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: "https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=1200&q=85", alt: "Panadería La Bahía interior", className: "absolute inset-0 w-full h-full object-cover" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0", style: {
-          background: "linear-gradient(100deg, rgba(10,61,98,0.90) 0%, rgba(10,61,98,0.55) 60%, transparent 100%)"
+          background: "linear-gradient(100deg, rgba(0,60,106,0.90) 0%, rgba(0,60,106,0.55) 60%, transparent 100%)"
         } }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative flex flex-col sm:flex-row items-start sm:items-center gap-6 p-7", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "chip mb-3 inline-block", style: {
-              background: "rgba(212,168,64,0.9)",
+              background: "rgba(212,151,10,0.9)",
               color: "#1A0A00"
             }, children: "Spotlight · Cataño" }),
             /* @__PURE__ */ jsxRuntimeExports.jsxs("h3", { className: "font-display text-3xl font-light italic text-white", children: [
@@ -275,7 +293,7 @@ function HomeScreen() {
               maxWidth: 340
             }, children: "Family-run since 1962. Famous for mallorcas at sunrise. A Cataño institution connecting locals and visitors every morning." }),
             /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-1.5 mt-3", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx(Star, { size: 13, fill: "#D4A840", color: "#D4A840" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(Star, { size: 13, fill: "#D4970A", color: "#D4970A" }),
               /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: {
                 fontFamily: "Montserrat",
                 fontSize: "0.75rem",

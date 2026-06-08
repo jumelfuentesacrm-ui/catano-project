@@ -75,7 +75,7 @@ function AdventuresScreen() {
         <div className="absolute inset-0 overlay-hero" />
         <div className="absolute inset-0 overlay-left" />
         <div className="absolute bottom-0 inset-x-0 px-5 pb-6 lg:px-8">
-          <p className="eyebrow mb-1" style={{ color: "#D4A840" }}>Adventure & Experience Marketplace</p>
+          <p className="eyebrow mb-1" style={{ color: "#D4970A" }}>Adventure & Experience Marketplace</p>
           <h1 className="font-display text-3xl font-light italic text-white">Island <strong className="not-italic font-semibold">Adventures</strong></h1>
           <p style={{ fontFamily: "Montserrat", fontSize: "0.75rem", color: "rgba(255,255,255,0.70)", marginTop: 6 }}>
             Book tours, guides, eco-adventures, wellness and cultural experiences
@@ -90,7 +90,7 @@ function AdventuresScreen() {
           {cats.map((c) => (
             <button key={c} onClick={() => setActiveCat(c)} className="chip whitespace-nowrap transition-all"
               style={activeCat === c
-                ? { background: "#0A3D62", color: "#FAF8F3" }
+                ? { background: "#0060A0", color: "#FAF8F3" }
                 : { background: "white", color: "#5A4A38", border: "1px solid #E5DDD0" }
               }>{c}</button>
           ))}
@@ -103,12 +103,12 @@ function AdventuresScreen() {
           <div className="absolute inset-0 overlay-left" />
           <div className="absolute inset-0 overlay-hero" />
           <div className="absolute bottom-0 inset-x-0 p-7">
-            <span className="chip mb-3 inline-block" style={{ background: "rgba(212,168,64,0.92)", color: "#1A0A00" }}>⭐ Featured Experience</span>
+            <span className="chip mb-3 inline-block" style={{ background: "rgba(212,151,10,0.92)", color: "#1A0A00" }}>⭐ Featured Experience</span>
             <h2 className="font-display text-3xl font-light italic text-white leading-tight" style={{ maxWidth: 380 }}>
               Private El Morro <strong className="not-italic font-semibold">Sunset Tour</strong>
             </h2>
             <div className="flex items-center gap-4 mt-3 flex-wrap">
-              <div className="flex items-center gap-1.5"><Star size={13} fill="#D4A840" color="#D4A840" /><span style={{ fontFamily: "Montserrat", fontSize: "0.75rem", color: "rgba(255,255,255,0.85)" }}>4.9</span></div>
+              <div className="flex items-center gap-1.5"><Star size={13} fill="#D4970A" color="#D4970A" /><span style={{ fontFamily: "Montserrat", fontSize: "0.75rem", color: "rgba(255,255,255,0.85)" }}>4.9</span></div>
               <div className="flex items-center gap-1.5" style={{ color: "rgba(255,255,255,0.65)" }}><Clock size={13} /><span style={{ fontFamily: "Montserrat", fontSize: "0.75rem" }}>3 hr</span></div>
               <div className="flex items-center gap-1.5" style={{ color: "rgba(255,255,255,0.65)" }}><Users size={13} /><span style={{ fontFamily: "Montserrat", fontSize: "0.75rem" }}>Private</span></div>
             </div>
@@ -127,18 +127,18 @@ function AdventuresScreen() {
                 <img src={e.img} alt={e.title} className="w-full h-full object-cover" />
                 <div className="absolute inset-0 overlay-card" />
                 {e.hot && <span className="chip absolute top-3 left-3" style={{ background: "rgba(192,57,43,0.9)", color: "white" }}>🔥 Popular</span>}
-                <div className="absolute top-3 right-3 chip" style={{ background: "rgba(255,255,255,0.92)", color: "#0A3D62" }}>{e.cat.split(" ")[1] || e.cat}</div>
+                <div className="absolute top-3 right-3 chip" style={{ background: "rgba(255,255,255,0.92)", color: "#0060A0" }}>{e.cat.split(" ")[1] || e.cat}</div>
               </div>
               <div className="p-4">
                 <h3 className="font-display text-lg font-semibold" style={{ color: "#1A1612", lineHeight: 1.25 }}>{e.title}</h3>
                 <p style={{ fontFamily: "Montserrat", fontSize: "0.7rem", color: "#8A7B6A", marginTop: 6, lineHeight: 1.55 }}>{e.desc}</p>
                 <div className="flex items-center gap-3 mt-3">
-                  <span className="flex items-center gap-1" style={{ fontFamily: "Montserrat", fontSize: "0.68rem", color: "#8A7B6A" }}><Star size={11} fill="#C89A30" color="#C89A30" /> {e.rating}</span>
+                  <span className="flex items-center gap-1" style={{ fontFamily: "Montserrat", fontSize: "0.68rem", color: "#8A7B6A" }}><Star size={11} fill="#D4970A" color="#D4970A" /> {e.rating}</span>
                   <span className="flex items-center gap-1" style={{ fontFamily: "Montserrat", fontSize: "0.68rem", color: "#8A7B6A" }}><Clock size={11} /> {e.dur}</span>
                   <span className="flex items-center gap-1" style={{ fontFamily: "Montserrat", fontSize: "0.68rem", color: "#8A7B6A" }}><Users size={11} /> {e.grp}</span>
                 </div>
                 <div className="flex items-center justify-between mt-4 pt-4" style={{ borderTop: "1px solid #F0EBE1" }}>
-                  <div className="font-display text-2xl font-light" style={{ color: "#0A3D62" }}>{e.price} <span style={{ fontFamily: "Montserrat", fontSize: "0.65rem", color: "#9A8A78", fontWeight: 400 }}>/ person</span></div>
+                  <div className="font-display text-2xl font-light" style={{ color: "#0060A0" }}>{e.price} <span style={{ fontFamily: "Montserrat", fontSize: "0.65rem", color: "#9A8A78", fontWeight: 400 }}>/ person</span></div>
                   <button className="btn-gold py-2 px-4 text-xs">Book</button>
                 </div>
               </div>
@@ -152,7 +152,7 @@ function AdventuresScreen() {
             alt="Group experiences" className="w-full sm:w-48 h-36 sm:h-full object-cover flex-shrink-0" />
           <div className="p-5 flex-1">
             <div className="flex items-center gap-1.5 mb-1"><Leaf size={13} color="#1A6B3C" /><p className="eyebrow">Group Pricing</p></div>
-            <h3 className="font-display text-xl font-semibold italic" style={{ color: "#0A3D62" }}>Groups of 6+ save up to 20%</h3>
+            <h3 className="font-display text-xl font-semibold italic" style={{ color: "#0060A0" }}>Groups of 6+ save up to 20%</h3>
             <p style={{ fontFamily: "Montserrat", fontSize: "0.72rem", color: "#8A7B6A", marginTop: 4 }}>Custom experiences, private guides, premium transport & exclusive activities automatically adjust for your group size.</p>
           </div>
           <div className="px-5 pb-5 sm:pb-0 sm:pr-6">
@@ -164,10 +164,10 @@ function AdventuresScreen() {
         <div className="mt-5 overflow-hidden rounded-2xl relative" style={{ height: 110 }}>
           <img src="https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=900&q=80"
             alt="Build custom itinerary" className="absolute inset-0 w-full h-full object-cover" />
-          <div className="absolute inset-0" style={{ background: "rgba(10,61,98,0.82)" }} />
+          <div className="absolute inset-0" style={{ background: "rgba(0,60,106,0.82)" }} />
           <div className="relative flex items-center justify-between h-full px-6">
             <div>
-              <p className="eyebrow mb-0.5" style={{ color: "#D4A840" }}>Build Your Journey</p>
+              <p className="eyebrow mb-0.5" style={{ color: "#D4970A" }}>Build Your Journey</p>
               <p className="font-display text-xl italic text-white">Custom multi-day itinerary →</p>
             </div>
             <button className="btn-gold flex-shrink-0">Start Planning</button>

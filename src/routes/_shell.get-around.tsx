@@ -72,7 +72,7 @@ function GetAroundScreen() {
         <div className="absolute inset-0 overlay-hero" />
         <div className="absolute inset-0 overlay-left" />
         <div className="absolute bottom-0 inset-x-0 px-5 pb-6 lg:px-8">
-          <p className="eyebrow mb-1" style={{ color: "#D4A840" }}>Transportation Network</p>
+          <p className="eyebrow mb-1" style={{ color: "#D4970A" }}>Transportation Network</p>
           <h1 className="font-display text-3xl font-light italic text-white">Get <strong className="not-italic font-semibold">Around</strong></h1>
         </div>
       </div>
@@ -87,7 +87,7 @@ function GetAroundScreen() {
             <span style={{ fontFamily: "Montserrat", fontSize: "0.8rem", color: "#9A8A78" }}>Your location or pickup point…</span>
           </div>
           <div className="flex items-center gap-3 rounded-xl p-3" style={{ background: "#F5F0E8" }}>
-            <MapPin size={12} color="#C89A30" className="flex-shrink-0" />
+            <MapPin size={12} color="#D4970A" className="flex-shrink-0" />
             <span style={{ fontFamily: "Montserrat", fontSize: "0.8rem", color: "#9A8A78" }}>Where are you going?</span>
           </div>
         </div>
@@ -100,12 +100,12 @@ function GetAroundScreen() {
               <button key={l} onClick={() => setSelected(l)}
                 className="card-lift flex min-w-[88px] flex-col items-center gap-2 rounded-2xl py-3 px-2 transition-all bg-white"
                 style={selected === l
-                  ? { border: "2px solid #0A3D62", background: "#EEF4FA" }
+                  ? { border: "2px solid #0060A0", background: "#EEF4FA" }
                   : { border: "1px solid #E5DDD0" }
                 }
               >
                 <span className="text-2xl leading-none">{e}</span>
-                <span style={{ fontFamily: "Barlow Condensed", fontSize: "0.62rem", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: selected === l ? "#0A3D62" : "#6A5A48", textAlign: "center" }}>{l}</span>
+                <span style={{ fontFamily: "Barlow Condensed", fontSize: "0.62rem", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: selected === l ? "#0060A0" : "#6A5A48", textAlign: "center" }}>{l}</span>
                 <span style={{ fontFamily: "Montserrat", fontSize: "0.55rem", color: "#9A8A78", textAlign: "center" }}>{desc}</span>
               </button>
             ))}
@@ -117,7 +117,7 @@ function GetAroundScreen() {
           <div className="flex items-start justify-between p-5 pb-4">
             <div>
               <p className="eyebrow mb-1">{sel.e} {sel.l} · Estimated Fare</p>
-              <div className="font-display text-4xl font-light" style={{ color: "#0A3D62" }}>$12–18</div>
+              <div className="font-display text-4xl font-light" style={{ color: "#0060A0" }}>$12–18</div>
               <p style={{ fontFamily: "Montserrat", fontSize: "0.7rem", color: "#8A7B6A", marginTop: 4 }}>~15 min arrival · Driver rated 4.9 ★</p>
             </div>
             <div className="flex items-center gap-1.5 rounded-full px-3 py-1.5" style={{ background: "#F0EBE1" }}>
@@ -160,7 +160,7 @@ function GetAroundScreen() {
                 </div>
               </div>
               <div className="flex items-center gap-2 pr-4 flex-shrink-0">
-                <div className="font-display text-xl font-light" style={{ color: "#0A3D62" }}>{r.price}</div>
+                <div className="font-display text-xl font-light" style={{ color: "#0060A0" }}>{r.price}</div>
                 <ChevronRight size={16} color="#C5B8A8" />
               </div>
             </div>

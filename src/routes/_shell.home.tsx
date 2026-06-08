@@ -13,9 +13,9 @@ export const Route = createFileRoute("/_shell/home")({
 
 // ── Data ──────────────────────────────────────────────────────────
 const quickActions = [
-  { Icon: Car,      label: "Book a Ride",  color: "#0A3D62", bg: "#E8F0F8" },
+  { Icon: Car,      label: "Book a Ride",  color: "#0060A0", bg: "#E8F0F8" },
   { Icon: Compass,  label: "Book a Tour",  color: "#1A6B3C", bg: "#E6F4EC" },
-  { Icon: Map,      label: "3D Map",       color: "#C89A30", bg: "#F8F1E0" },
+  { Icon: Map,      label: "3D Map",       color: "#D4970A", bg: "#F8F1E0" },
   { Icon: Calendar, label: "Events",       color: "#C0392B", bg: "#F8E8E6" },
   { Icon: Utensils, label: "Local Food",   color: "#6B3FA0", bg: "#F0EBF8" },
 ];
@@ -89,11 +89,15 @@ function HomeScreen() {
         <div className="absolute inset-0 overlay-hero" />
         <div className="absolute inset-0 overlay-left" />
 
-        {/* Header */}
-        <div className="absolute top-0 inset-x-0 flex items-start justify-between px-5 pt-6 lg:px-8">
-          <div>
-            <p className="eyebrow mb-0.5" style={{ color: "#D4A840" }}>Spirit of</p>
-            <h1 className="font-display text-3xl font-light italic text-white lg:text-4xl">Puerto Rico</h1>
+        {/* Header with logo */}
+        <div className="absolute top-0 inset-x-0 flex items-center justify-between px-5 pt-5 lg:px-8">
+          <div className="flex items-center gap-3">
+            <img src="/logo.png" alt="Spirit of Puerto Rico"
+              style={{ width: 48, height: "auto", filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.35))" }} />
+            <div>
+              <p style={{ fontFamily: "Barlow Condensed", fontSize: "0.55rem", fontWeight: 700, letterSpacing: "0.26em", textTransform: "uppercase", color: "#E0A800" }}>Spirit of</p>
+              <p style={{ fontFamily: "Cormorant Garamond", fontSize: "1.35rem", fontStyle: "italic", color: "white", lineHeight: 1.05 }}>Puerto Rico</p>
+            </div>
           </div>
           <div className="flex items-center gap-2 rounded-full px-3 py-1.5"
             style={{ background: "rgba(255,255,255,0.15)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.2)" }}>
@@ -103,7 +107,7 @@ function HomeScreen() {
 
         {/* Hero text */}
         <div className="absolute bottom-0 inset-x-0 px-5 pb-8 lg:px-8">
-          <span className="chip mb-3" style={{ background: "rgba(212,168,64,0.9)", color: "#1A0A00" }}>Featured Story</span>
+          <span className="chip mb-3" style={{ background: "rgba(212,151,10,0.9)", color: "#1A0A00" }}>Featured Story</span>
           <h2 className="font-display text-2xl font-light text-white leading-tight lg:text-3xl" style={{ maxWidth: 480 }}>
             Voices of the Bay:<br />
             <span className="font-semibold not-italic">Three Generations of Cataño Fishermen</span>
@@ -114,7 +118,7 @@ function HomeScreen() {
             </button>
             <div className="flex items-center gap-2">
               <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=56&q=80"
-                alt="Doña Mariela" className="h-7 w-7 rounded-full object-cover" style={{ border: "2px solid #D4A840" }} />
+                alt="Doña Mariela" className="h-7 w-7 rounded-full object-cover" style={{ border: "2px solid #D4970A" }} />
               <span style={{ fontFamily: "Montserrat", fontSize: "0.72rem", color: "rgba(255,255,255,0.80)" }}>Doña Mariela · Local Elder</span>
             </div>
           </div>
@@ -156,7 +160,7 @@ function HomeScreen() {
                 <img src={s.img} alt={s.title} className="w-full h-full object-cover" />
                 <div className="absolute inset-0 overlay-card" />
                 <span className="chip absolute top-3 left-3"
-                  style={{ background: "rgba(255,255,255,0.92)", color: "#0A3D62" }}>{s.tag}</span>
+                  style={{ background: "rgba(255,255,255,0.92)", color: "#0060A0" }}>{s.tag}</span>
               </div>
               <div className="p-4">
                 <p style={{ fontFamily: "Cormorant Garamond", fontSize: "1rem", fontWeight: 600, color: "#1A1612", lineHeight: 1.3 }}>{s.title}</p>
@@ -185,9 +189,9 @@ function HomeScreen() {
                 <img src={e.img} alt={e.name} className="w-full h-full object-cover" />
                 <div className="absolute inset-0 overlay-card" />
                 <span className="chip absolute top-3 left-3"
-                  style={{ background: "rgba(212,168,64,0.92)", color: "#1A0A00" }}>{e.tag}</span>
+                  style={{ background: "rgba(212,151,10,0.92)", color: "#1A0A00" }}>{e.tag}</span>
                 <span className="chip absolute top-3 right-3"
-                  style={{ background: e.price === "Free" ? "rgba(26,107,60,0.9)" : "rgba(255,255,255,0.92)", color: e.price === "Free" ? "white" : "#0A3D62" }}>{e.price}</span>
+                  style={{ background: e.price === "Free" ? "rgba(26,107,60,0.9)" : "rgba(255,255,255,0.92)", color: e.price === "Free" ? "white" : "#0060A0" }}>{e.price}</span>
               </div>
               <div className="p-4">
                 <div className="flex items-center gap-1.5 mb-1.5 eyebrow"><Clock size={10} />{e.date}</div>
@@ -210,16 +214,16 @@ function HomeScreen() {
         <div className="relative overflow-hidden rounded-3xl" style={{ minHeight: 200 }}>
           <img src="https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=1200&q=85"
             alt="Panadería La Bahía interior" className="absolute inset-0 w-full h-full object-cover" />
-          <div className="absolute inset-0" style={{ background: "linear-gradient(100deg, rgba(10,61,98,0.90) 0%, rgba(10,61,98,0.55) 60%, transparent 100%)" }} />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(100deg, rgba(0,60,106,0.90) 0%, rgba(0,60,106,0.55) 60%, transparent 100%)" }} />
           <div className="relative flex flex-col sm:flex-row items-start sm:items-center gap-6 p-7">
             <div className="flex-1">
-              <span className="chip mb-3 inline-block" style={{ background: "rgba(212,168,64,0.9)", color: "#1A0A00" }}>Spotlight · Cataño</span>
+              <span className="chip mb-3 inline-block" style={{ background: "rgba(212,151,10,0.9)", color: "#1A0A00" }}>Spotlight · Cataño</span>
               <h3 className="font-display text-3xl font-light italic text-white">Panadería <strong className="font-semibold not-italic">La Bahía</strong></h3>
               <p style={{ fontFamily: "Montserrat", fontSize: "0.8rem", color: "rgba(255,255,255,0.75)", marginTop: 8, maxWidth: 340 }}>
                 Family-run since 1962. Famous for mallorcas at sunrise. A Cataño institution connecting locals and visitors every morning.
               </p>
               <div className="flex items-center gap-1.5 mt-3">
-                <Star size={13} fill="#D4A840" color="#D4A840" />
+                <Star size={13} fill="#D4970A" color="#D4970A" />
                 <span style={{ fontFamily: "Montserrat", fontSize: "0.75rem", color: "rgba(255,255,255,0.80)" }}>4.9 · 312 reviews</span>
               </div>
             </div>
