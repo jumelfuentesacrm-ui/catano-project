@@ -1,140 +1,129 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, Star, MapPin, Search, Users } from "lucide-react";
+import { MapPin, Star, Users } from "lucide-react";
 import { useState } from "react";
 
 export const Route = createFileRoute("/_shell/get-around")({
-  head: () => ({
-    meta: [
-      { title: "Get Around — Cataño" },
-      { name: "description", content: "Rideshare, taxis, scooters, water transport, shuttles and party buses across Puerto Rico." },
-    ],
-  }),
+  head: () => ({ meta: [{ title: "Get Around — Spirit of Puerto Rico" }] }),
   component: GetAroundScreen,
 });
 
 const vehicles = [
-  { e: "🚗", l: "Rideshare" },
-  { e: "🚕", l: "Taxi" },
-  { e: "🛵", l: "Scooter" },
-  { e: "🚲", l: "Bicycle" },
-  { e: "⛵", l: "Water" },
-  { e: "🚐", l: "Shuttle" },
-  { e: "🚌", l: "Bus 15" },
-  { e: "🚍", l: "Bus 45" },
-  { e: "🎉", l: "Party Bus" },
-  { e: "🏔️", l: "Adventure" },
-  { e: "🧳", l: "Guide + Ride" },
+  { e: "🚗", l: "Rideshare" }, { e: "🚕", l: "Taxi" }, { e: "🛵", l: "Scooter" },
+  { e: "🚲", l: "Bicycle" },  { e: "⛵", l: "Water" },  { e: "🚐", l: "Shuttle" },
+  { e: "🚌", l: "Bus 15" },   { e: "🚍", l: "Bus 45" }, { e: "🎉", l: "Party Bus" },
+  { e: "🏔️", l: "Adventure" }, { e: "🧳", l: "Guide + Ride" },
 ];
 
-const routes = [
-  { from: "SJU Airport", to: "Cataño", price: "$28", img: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&q=80" },
-  { from: "Cruise Port", to: "Old San Juan", price: "$18", img: "https://images.unsplash.com/photo-1545569310-26e7df1ccbc5?w=600&q=80" },
-  { from: "Hotel District", to: "Escambrón Beach", price: "$14", img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80" },
+const popularRoutes = [
+  { from: "SJU Airport", to: "Cataño", price: "$28", time: "35 min", img: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&q=80" },
+  { from: "Cruise Port", to: "Old San Juan", price: "$18", time: "20 min", img: "https://images.unsplash.com/photo-1548574505-5e239809ee19?w=600&q=80" },
+  { from: "Hotel Zone", to: "Isla Verde Beach", price: "$12", time: "15 min", img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80" },
 ];
 
 function GetAroundScreen() {
   const [selected, setSelected] = useState("Rideshare");
 
   return (
-    <div className="mx-auto max-w-5xl px-4 py-6 lg:px-8 lg:py-10 pb-32 lg:pb-12">
-      <header>
-        <p className="font-accent text-xs text-muted-foreground">GET AROUND</p>
-        <h1 className="mt-1 font-display text-3xl font-bold lg:text-4xl">Where are you going?</h1>
-      </header>
+    <div className="mx-auto max-w-3xl px-4 py-0 lg:px-8">
+
+      {/* Hero */}
+      <div className="relative -mx-4 lg:-mx-8 mb-8 overflow-hidden" style={{ height: 200 }}>
+        <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=1200&q=85" alt="Transportation" className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, oklch(0.06 0.02 240 / 0.5) 0%, oklch(0.06 0.02 240 / 0.92) 100%)" }} />
+        <div className="absolute bottom-0 left-0 right-0 px-6 pb-6">
+          <p className="eyebrow mb-1">Transportation</p>
+          <h1 className="font-display text-3xl font-light italic text-white">Get <span className="not-italic font-semibold">Around</span></h1>
+        </div>
+      </div>
 
       {/* Search */}
-      <div className="mt-5 overflow-hidden rounded-3xl bg-card p-5 shadow-warm">
-        <div className="flex items-center gap-3">
-          <span className="grid h-9 w-9 place-items-center rounded-full bg-sunset/15 text-sunset"><MapPin size={16}/></span>
-          <input className="w-full bg-transparent text-sm outline-none placeholder:text-muted-foreground" placeholder="From — current location" defaultValue="Calle Marina 12, Cataño" />
+      <div className="mb-6 rounded-2xl p-4 space-y-3" style={{ background: "oklch(0.14 0.018 240)", border: "1px solid oklch(1 0 0 / 0.07)" }}>
+        <div className="flex items-center gap-3 rounded-xl p-3" style={{ background: "oklch(0.18 0.02 240)" }}>
+          <div className="h-2.5 w-2.5 rounded-full" style={{ background: "oklch(0.52 0.14 148)" }} />
+          <span className="font-sans text-sm text-white/50">Your location…</span>
         </div>
-        <div className="my-3 ml-12 h-px bg-border" />
-        <div className="flex items-center gap-3">
-          <span className="grid h-9 w-9 place-items-center rounded-full bg-terracotta/15 text-terracotta"><Search size={16}/></span>
-          <input className="w-full bg-transparent text-sm outline-none placeholder:text-muted-foreground" placeholder="Where to?" />
+        <div className="flex items-center gap-3 rounded-xl p-3" style={{ background: "oklch(0.18 0.02 240)" }}>
+          <MapPin size={12} color="oklch(0.80 0.16 72)" />
+          <span className="font-sans text-sm text-white/50">Where to?</span>
         </div>
       </div>
 
-      {/* Vehicle selector */}
-      <section className="mt-7">
-        <h3 className="font-display text-lg font-bold">Choose how you ride</h3>
-        <div className="no-scrollbar mt-3 flex gap-2.5 overflow-x-auto pb-2">
-          {vehicles.map((v) => (
-            <button
-              key={v.l}
-              onClick={() => setSelected(v.l)}
-              className={`flex min-w-[90px] flex-col items-center gap-1 rounded-2xl border px-3 py-3 text-xs font-semibold transition ${
-                selected === v.l ? "border-transparent bg-primary text-primary-foreground shadow-warm" : "border-border bg-card text-foreground/70"
-              }`}
-            >
-              <span className="text-2xl">{v.e}</span>
-              {v.l}
-            </button>
-          ))}
-        </div>
-      </section>
+      {/* Vehicle types */}
+      <h2 className="font-display text-xl italic font-light text-white mb-4">Choose <span className="not-italic font-semibold">Your Ride</span></h2>
+      <div className="no-scrollbar flex gap-3 overflow-x-auto pb-3 mb-8">
+        {vehicles.map(({ e, l }) => (
+          <button key={l} onClick={() => setSelected(l)}
+            className="card-lift flex min-w-[80px] flex-col items-center gap-2 rounded-2xl py-3 px-2 transition-all"
+            style={selected === l
+              ? { background: "var(--gradient-gold)", border: "1px solid transparent" }
+              : { background: "oklch(0.14 0.018 240)", border: "1px solid oklch(1 0 0 / 0.07)" }
+            }
+          >
+            <span className="text-2xl leading-none">{e}</span>
+            <span className="font-accent text-[10px] font-600 uppercase tracking-wide whitespace-nowrap"
+              style={{ color: selected === l ? "oklch(0.10 0.02 60)" : "oklch(0.60 0.02 260)" }}
+            >{l}</span>
+          </button>
+        ))}
+      </div>
 
-      {/* Map preview + fare */}
-      <section className="mt-6 grid gap-4 lg:grid-cols-5">
-        <div className="relative overflow-hidden rounded-3xl shadow-warm lg:col-span-3">
-          <div
-            className="aspect-[16/10] w-full bg-cover bg-center"
-            style={{ backgroundImage: "url(https://images.unsplash.com/photo-1524661135-423995f22d0b?w=1200&q=80)" }}
-          />
-          <div className="absolute inset-0 bg-primary/20" />
-          <div className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-[11px] font-semibold text-primary shadow">Pickup in 4 min</div>
-          <div className="absolute bottom-4 left-4 rounded-2xl bg-white/95 px-3 py-2 text-xs text-primary shadow">
-            <div className="font-display font-bold">Calle Marina · Pier 2</div>
-            <div className="text-[11px] text-muted-foreground">Driver heading north</div>
+      {/* Fare estimate */}
+      <div className="mb-8 relative overflow-hidden rounded-2xl p-5" style={{ background: "oklch(0.14 0.018 240)", border: "1px solid oklch(1 0 0 / 0.07)" }}>
+        <div className="flex items-center justify-between mb-4">
+          <div>
+            <p className="eyebrow mb-1">{selected} · Estimated Fare</p>
+            <div className="font-display text-4xl font-light text-white">$12–18</div>
+            <p className="font-sans text-xs text-white/50 mt-1">~15 min arrival · 4.9 ★</p>
+          </div>
+          <div className="flex items-center gap-1.5 font-sans text-sm text-white/60">
+            <Users size={15} />
+            <span>1–4 people</span>
           </div>
         </div>
-
-        <div className="rounded-3xl bg-gradient-ocean p-6 text-white shadow-warm lg:col-span-2">
-          <span className="font-accent text-[11px] text-sunset">ESTIMATED FARE · {selected.toUpperCase()}</span>
-          <div className="mt-2 font-display text-4xl font-black">$14 – $19</div>
-          <div className="mt-1 text-sm opacity-85">ETA 4 min · 12 min ride</div>
-          <div className="mt-4 flex items-center gap-3">
-            <div className="h-10 w-10 rounded-full bg-sunset ring-2 ring-white" />
-            <div>
-              <div className="text-sm font-semibold">Luis Vega</div>
-              <div className="flex items-center gap-1 text-xs opacity-90"><Star size={12} className="fill-sunset text-sunset" /> 4.94 · Toyota Corolla</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Popular routes */}
-      <section className="mt-8">
-        <h3 className="font-display text-lg font-bold">Popular routes</h3>
-        <div className="no-scrollbar mt-3 flex gap-4 overflow-x-auto pb-2">
-          {routes.map((r) => (
-            <article key={r.from} className="card-lift min-w-[260px] overflow-hidden rounded-2xl bg-card shadow-warm">
-              <div className="aspect-[5/3]"><img src={r.img} alt="" className="h-full w-full object-cover" /></div>
-              <div className="p-4">
-                <div className="font-display text-base font-semibold">{r.from} <ArrowRight size={14} className="mx-1 inline text-muted-foreground" /> {r.to}</div>
-                <div className="mt-1 text-sm text-muted-foreground">from <span className="font-bold text-foreground">{r.price}</span></div>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      {/* Group booking */}
-      <section className="mt-6 flex items-center gap-4 rounded-3xl bg-tropical p-5 text-tropical-foreground shadow-warm">
-        <Users size={28} />
-        <div className="flex-1">
-          <div className="font-display text-base font-bold">Traveling with 6+ people?</div>
-          <div className="text-xs opacity-90">Get group pricing on shuttles, buses and party buses.</div>
-        </div>
-        <button className="rounded-full bg-white px-4 py-2 text-xs font-semibold text-tropical">Book group →</button>
-      </section>
-
-      {/* Sticky CTA */}
-      <div className="fixed bottom-20 left-0 right-0 z-30 px-4 lg:static lg:mt-8 lg:px-0">
-        <button className="w-full rounded-full bg-gradient-sunset py-4 text-base font-bold text-sunset-foreground shadow-glow">
-          Book Now — {selected}
+        <button
+          className="w-full rounded-full py-3.5 font-sans text-sm font-700 uppercase tracking-wider transition-transform hover:scale-[1.02]"
+          style={{ background: "var(--gradient-gold)", color: "oklch(0.10 0.02 60)" }}
+        >
+          Book Now
         </button>
       </div>
+
+      {/* Group banner */}
+      <div className="mb-8 relative overflow-hidden rounded-2xl">
+        <img src="https://images.unsplash.com/photo-1519671282429-b44b2802040e?w=900&q=80" alt="Group transport" className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0" style={{ background: "oklch(0.06 0.02 240 / 0.80)" }} />
+        <div className="relative flex items-center justify-between p-5">
+          <div>
+            <p className="eyebrow mb-1">Groups of 6+</p>
+            <h3 className="font-display text-xl font-semibold italic text-white">Save up to 20%</h3>
+            <p className="font-sans text-sm text-white/60">Shuttle, bus & party bus packages</p>
+          </div>
+          <button className="rounded-full px-5 py-2.5 font-sans text-xs font-700 uppercase tracking-wider whitespace-nowrap"
+            style={{ background: "var(--gradient-gold)", color: "oklch(0.10 0.02 60)" }}>
+            Get Quote
+          </button>
+        </div>
+      </div>
+
+      {/* Popular routes */}
+      <h2 className="font-display text-xl italic font-light text-white mb-4">Popular <span className="not-italic font-semibold">Routes</span></h2>
+      <div className="flex flex-col gap-3 mb-8">
+        {popularRoutes.map((r) => (
+          <div key={r.from} className="card-lift flex items-center gap-4 rounded-2xl p-3"
+            style={{ background: "oklch(0.14 0.018 240)", border: "1px solid oklch(1 0 0 / 0.07)" }}>
+            <img src={r.img} alt={r.to} className="h-14 w-20 rounded-xl object-cover flex-shrink-0" />
+            <div className="flex-1 min-w-0">
+              <p className="font-sans text-sm text-white/50 truncate">{r.from}</p>
+              <p className="font-display text-base font-semibold text-white">{r.to}</p>
+              <div className="flex items-center gap-3 mt-0.5">
+                <span className="font-accent text-xs text-white/50 uppercase tracking-wide">{r.time}</span>
+              </div>
+            </div>
+            <div className="font-display text-xl font-semibold text-white flex-shrink-0">{r.price}</div>
+          </div>
+        ))}
+      </div>
+
     </div>
   );
 }

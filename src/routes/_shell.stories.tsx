@@ -1,129 +1,112 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Heart, Share2, Bookmark, Play, Plus, BadgeCheck } from "lucide-react";
+import { Heart, Share2, Bookmark, Play, Plus } from "lucide-react";
 import { useState } from "react";
 
 export const Route = createFileRoute("/_shell/stories")({
-  head: () => ({
-    meta: [
-      { title: "Stories — Cataño" },
-      { name: "description", content: "Community storytelling from Puerto Rico — elders, youth, business owners and culture keepers." },
-    ],
-  }),
+  head: () => ({ meta: [{ title: "Stories — Spirit of Puerto Rico" }] }),
   component: StoriesScreen,
 });
 
-const filters = ["All", "Elders", "History", "Business", "Youth", "Events", "Culture"] as const;
+const filters = ["All", "Elders", "History", "Business", "Youth", "Culture"] as const;
 
 const stories = [
-  {
-    title: "The day the ferry brought my abuelo home",
-    desc: "A 90-year-old recounts returning from the Korean War.",
-    creator: "Doña Mariela",
-    badge: "Local Elder",
-    tags: ["#FamilyHistory", "#CatañoProud"],
-    img: "https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=800&q=80",
-  },
-  {
-    title: "Running my mother's panadería at 22",
-    desc: "Why I came back from Orlando to keep the bakery alive.",
-    creator: "Joseline Ramírez",
-    badge: "Business Owner",
-    tags: ["#NewGuard", "#CatañoEats"],
-    img: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&q=80",
-  },
-  {
-    title: "Bomba is not a performance, it's a conversation",
-    desc: "Inside a Saturday night gathering at the plaza.",
-    creator: "Tito Ayala",
-    badge: "Culture Keeper",
-    tags: ["#OralHistory", "#Bomba"],
-    img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&q=80",
-  },
-  {
-    title: "We surf before school",
-    desc: "Three teenagers, one longboard, and the sunrise.",
-    creator: "Andrés & crew",
-    badge: "Youth Creator",
-    tags: ["#YouthVoices", "#Surf"],
-    img: "https://images.unsplash.com/photo-1502680390469-be75c86b636f?w=800&q=80",
-  },
+  { title: "The day the ferry brought my abuelo home", desc: "A 90-year-old recounts returning from the Korean War through San Juan Bay.", creator: "Doña Mariela", badge: "Local Elder", tags: ["#FamilyHistory", "#CatañoProud"], img: "https://images.unsplash.com/photo-1548574505-5e239809ee19?w=800&q=85", avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&q=80", likes: 847 },
+  { title: "Running my mother's panadería at 22", desc: "Why I came back from Orlando to keep the bakery and the family legacy alive.", creator: "Joseline Ramírez", badge: "Business Owner", tags: ["#LocalBusiness", "#Roots"], img: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=85", avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=80&q=80", likes: 612 },
+  { title: "Bomba y plena — the pulse that never left", desc: "Three musicians explain why this rhythm is Puerto Rico's spiritual backbone.", creator: "DJ Yaniel", badge: "Youth Creator", tags: ["#Cultura", "#Música"], img: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&q=85", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80", likes: 1204 },
+  { title: "Kayaking through the bioluminescent bay at midnight", desc: "The eerie glow of Laguna Grande is something you never forget.", creator: "Eco Tours PR", badge: "Tour Guide", tags: ["#Adventure", "#Nature"], img: "https://images.unsplash.com/photo-1502933691298-84fc14542831?w=800&q=85", avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&q=80", likes: 2341 },
 ];
 
 function StoriesScreen() {
-  const [active, setActive] = useState<(typeof filters)[number]>("All");
+  const [active, setActive] = useState<string>("All");
 
   return (
-    <div className="mx-auto max-w-3xl px-4 py-6 lg:px-8 lg:py-10">
-      <header>
-        <p className="font-accent text-xs text-muted-foreground">COMMUNITY STORYTELLING</p>
-        <h1 className="mt-1 font-display text-3xl font-bold lg:text-4xl">Stories from the island</h1>
-      </header>
+    <div className="mx-auto max-w-3xl px-4 py-6 lg:px-8">
 
-      {/* Featured collection banner */}
-      <div className="relative mt-5 overflow-hidden rounded-3xl bg-gradient-sunset p-6 text-sunset-foreground shadow-warm">
-        <span className="font-accent text-[11px]">THIS MONTH</span>
-        <h2 className="mt-1 font-display text-2xl font-bold leading-tight">Oral Histories of Old San Juan</h2>
-        <p className="mt-2 max-w-md text-sm opacity-90">12 elders. 7 streets. 500 years of memory.</p>
-        <button className="mt-4 rounded-full bg-primary px-4 py-2 text-xs font-semibold text-primary-foreground">Explore collection</button>
-        <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-white/20 blur-2xl" />
+      {/* Header over photo */}
+      <div className="relative -mx-4 lg:-mx-8 mb-8 overflow-hidden rounded-b-3xl" style={{ height: 220 }}>
+        <img src="https://images.unsplash.com/photo-1583398701142-37bd2d3f9d49?w=1200&q=85" alt="Puerto Rico" className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, oklch(0.06 0.02 240 / 0.4) 0%, oklch(0.06 0.02 240 / 0.88) 100%)" }} />
+        <div className="absolute bottom-0 left-0 right-0 px-6 pb-6">
+          <p className="eyebrow mb-1">Community</p>
+          <h1 className="font-display text-3xl font-light italic text-white">Stories of <span className="not-italic font-semibold">Puerto Rico</span></h1>
+        </div>
+      </div>
+
+      {/* Featured collection */}
+      <div className="mb-6 relative overflow-hidden rounded-2xl" style={{ background: "oklch(0.14 0.018 240)", border: "1px solid oklch(1 0 0 / 0.07)" }}>
+        <img src="https://images.unsplash.com/photo-1599413987323-2f7edc9c9c4d?w=900&q=85" alt="Collection" className="absolute inset-0 w-full h-full object-cover opacity-30" />
+        <div className="relative p-5">
+          <p className="eyebrow mb-1">This Month's Collection</p>
+          <h2 className="font-display text-xl font-semibold italic text-white">Oral Histories of the Bay</h2>
+          <p className="font-sans text-sm text-white/60 mt-1">18 stories · curated by Spirit of Puerto Rico</p>
+        </div>
       </div>
 
       {/* Filters */}
-      <div className="no-scrollbar mt-6 flex gap-2 overflow-x-auto pb-1">
+      <div className="no-scrollbar flex gap-2 overflow-x-auto pb-3 mb-6">
         {filters.map((f) => (
-          <button
-            key={f}
-            onClick={() => setActive(f)}
-            className={`rounded-full px-4 py-2 text-xs font-semibold whitespace-nowrap transition ${
-              active === f ? "bg-primary text-primary-foreground shadow-warm" : "bg-card text-foreground/70 border border-border"
-            }`}
-          >
-            {f}
-          </button>
+          <button key={f} onClick={() => setActive(f)}
+            className="chip whitespace-nowrap transition-all"
+            style={active === f
+              ? { background: "var(--gradient-gold)", color: "oklch(0.10 0.02 60)" }
+              : { background: "oklch(0.18 0.02 240)", color: "oklch(0.65 0.02 260)", border: "1px solid oklch(1 0 0 / 0.08)" }
+            }
+          >{f}</button>
         ))}
       </div>
 
-      {/* Feed */}
-      <div className="mt-5 space-y-5">
+      {/* Story feed */}
+      <div className="flex flex-col gap-5">
         {stories.map((s) => (
-          <article key={s.title} className="card-lift overflow-hidden rounded-3xl bg-card shadow-warm">
-            <div className="relative aspect-[4/5] sm:aspect-[16/10]">
-              <img src={s.img} alt={s.title} className="h-full w-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-hero" />
-              <button className="absolute left-1/2 top-1/2 grid h-14 w-14 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white/90 text-primary">
-                <Play size={20} fill="currentColor" className="ml-0.5" />
+          <article key={s.title} className="card-lift overflow-hidden rounded-2xl" style={{ background: "oklch(0.14 0.018 240)", border: "1px solid oklch(1 0 0 / 0.07)" }}>
+            {/* Thumbnail */}
+            <div className="relative overflow-hidden" style={{ height: 220 }}>
+              <img src={s.img} alt={s.title} className="w-full h-full object-cover" />
+              <div className="absolute inset-0 photo-overlay" />
+              <button className="absolute inset-0 flex items-center justify-center">
+                <div className="grid h-14 w-14 place-items-center rounded-full transition-transform hover:scale-110"
+                  style={{ background: "oklch(1 0 0 / 0.15)", backdropFilter: "blur(8px)", border: "1px solid oklch(1 0 0 / 0.25)" }}>
+                  <Play size={20} fill="white" stroke="none" className="ml-0.5" />
+                </div>
               </button>
-              <div className="absolute bottom-4 left-4 right-4 text-white">
-                <div className="flex items-center gap-2">
-                  <div className="h-9 w-9 rounded-full bg-sunset ring-2 ring-white" />
-                  <div>
-                    <div className="text-sm font-semibold leading-tight flex items-center gap-1">{s.creator} <BadgeCheck size={14} className="text-sunset" /></div>
-                    <span className="chip bg-white/20 text-white text-[10px]">{s.badge}</span>
-                  </div>
+              <span className="chip absolute top-3 left-3 text-white" style={{ background: "oklch(1 0 0 / 0.15)", backdropFilter: "blur(8px)" }}>{s.badge}</span>
+            </div>
+            {/* Content */}
+            <div className="p-5">
+              <div className="flex items-center gap-3 mb-3">
+                <img src={s.avatar} alt={s.creator} className="h-8 w-8 rounded-full object-cover" />
+                <div>
+                  <p className="font-sans text-sm font-600 text-white">{s.creator}</p>
+                  <p className="font-accent text-[10px] uppercase tracking-wide text-white/45">{s.badge}</p>
                 </div>
               </div>
-            </div>
-            <div className="p-5">
-              <h3 className="font-display text-lg font-bold leading-snug">{s.title}</h3>
-              <p className="mt-1 text-sm text-muted-foreground">{s.desc}</p>
+              <h3 className="font-display text-xl font-semibold text-white leading-snug">{s.title}</h3>
+              <p className="font-sans text-sm text-white/60 mt-1.5 leading-relaxed">{s.desc}</p>
               <div className="mt-3 flex flex-wrap gap-1.5">
-                {s.tags.map((t) => (
-                  <span key={t} className="text-[11px] font-semibold text-ocean">{t}</span>
-                ))}
+                {s.tags.map((t) => <span key={t} className="font-sans text-xs text-white/45">{t}</span>)}
               </div>
-              <div className="mt-4 flex items-center gap-5 text-muted-foreground">
-                <button className="flex items-center gap-1.5 text-sm hover:text-terracotta"><Heart size={18} /> 1.2k</button>
-                <button className="flex items-center gap-1.5 text-sm hover:text-foreground"><Share2 size={18} /> Share</button>
-                <button className="ml-auto flex items-center gap-1.5 text-sm hover:text-sunset"><Bookmark size={18} /> Save</button>
+              <div className="mt-4 flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                  <button className="flex items-center gap-1.5 font-sans text-xs text-white/55 hover:text-white transition-colors">
+                    <Heart size={15} /> {s.likes.toLocaleString()}
+                  </button>
+                  <button className="flex items-center gap-1.5 font-sans text-xs text-white/55 hover:text-white transition-colors">
+                    <Share2 size={14} /> Share
+                  </button>
+                </div>
+                <button className="text-white/40 hover:text-white transition-colors"><Bookmark size={15} /></button>
               </div>
             </div>
           </article>
         ))}
       </div>
 
-      {/* Floating upload */}
-      <button className="fixed bottom-24 right-5 z-30 flex items-center gap-2 rounded-full bg-gradient-sunset px-5 py-3.5 font-semibold text-sunset-foreground shadow-glow lg:bottom-8 lg:right-8">
-        <Plus size={18} /> Upload Your Story
+      {/* Upload FAB */}
+      <button
+        className="fixed bottom-24 right-5 lg:bottom-8 flex items-center gap-2 rounded-full px-5 py-3 shadow-glow font-sans text-sm font-700 uppercase tracking-wider transition-transform hover:scale-105 z-30"
+        style={{ background: "var(--gradient-gold)", color: "oklch(0.10 0.02 60)" }}
+      >
+        <Plus size={16} /> Share Story
       </button>
     </div>
   );

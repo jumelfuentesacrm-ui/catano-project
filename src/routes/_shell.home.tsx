@@ -1,165 +1,210 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Cloud, Play, Car, Map as MapIcon, Calendar, UtensilsCrossed, Compass, Star, ArrowRight, MapPin } from "lucide-react";
+import { Play, MapPin, Star, ArrowRight, Car, Compass, Map, Calendar, UtensilsCrossed, Clock } from "lucide-react";
 
 export const Route = createFileRoute("/_shell/home")({
   head: () => ({
     meta: [
-      { title: "Home — Cataño" },
-      { name: "description", content: "Discover stories, events, food, and hidden gems in Cataño today." },
+      { title: "Home — Spirit of Puerto Rico" },
+      { name: "description", content: "Discover stories, events, food, and hidden gems across Puerto Rico." },
     ],
   }),
   component: HomeScreen,
 });
 
+const quickActions = [
+  { Icon: Car,            label: "Book Ride",   bg: "oklch(0.38 0.10 235)" },
+  { Icon: Compass,        label: "Tours",       bg: "oklch(0.62 0.18 32)" },
+  { Icon: Map,            label: "Explore",     bg: "oklch(0.52 0.14 148)" },
+  { Icon: Calendar,       label: "Events",      bg: "oklch(0.80 0.16 72)" },
+  { Icon: UtensilsCrossed,label: "Food",        bg: "oklch(0.42 0.12 300)" },
+];
+
 const trending = [
-  { tag: "History", title: "The old ferry crossings of San Juan Bay", img: "https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=600&q=80" },
-  { tag: "Food", title: "Where to find the real alcapurrias", img: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?w=600&q=80" },
-  { tag: "Music", title: "Bomba y plena in the plaza", img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=600&q=80" },
+  { tag: "History",  title: "The old ferry crossings of San Juan Bay",     img: "https://images.unsplash.com/photo-1548574505-5e239809ee19?w=600&q=85" },
+  { tag: "Food",     title: "Where to find the real alcapurrias in Cataño", img: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=85" },
+  { tag: "Culture",  title: "Bomba y plena — the heartbeat of the island",  img: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&q=85" },
 ];
 
 const events = [
-  { name: "Festival de la Bahía", date: "Fri · Jun 13", loc: "Paseo Marítimo", img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&q=80" },
-  { name: "Noches de Bomba", date: "Sat · Jun 14", loc: "Plaza Central", img: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&q=80" },
-  { name: "Mercado Agrícola", date: "Sun · Jun 15", loc: "Calle Marina", img: "https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=600&q=80" },
+  { name: "Festival de la Bahía",  date: "Fri · Jun 13",  loc: "Paseo Marítimo",  img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&q=85",  price: "Free" },
+  { name: "Noches de Bomba",       date: "Sat · Jun 14",  loc: "Plaza Central",   img: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=600&q=85",  price: "$15" },
+  { name: "Mercado Agrícola",      date: "Sun · Jun 15",  loc: "Calle Marina",    img: "https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=600&q=85",  price: "Free" },
 ];
 
 const gems = [
-  { name: "Mirador El Morro", dist: "2.4 km", img: "https://images.unsplash.com/photo-1583398701142-37bd2d3f9d49?w=500&q=80" },
-  { name: "Café Don Ruiz", dist: "0.8 km", img: "https://images.unsplash.com/photo-1442975631115-c4f7b05b8a2c?w=500&q=80" },
-  { name: "Isla de Cabras", dist: "3.1 km", img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=500&q=80" },
-];
-
-const quickActions = [
-  { Icon: Car, label: "Book Ride", color: "bg-ocean text-ocean-foreground" },
-  { Icon: Compass, label: "Plan Tour", color: "bg-tropical text-tropical-foreground" },
-  { Icon: MapIcon, label: "Map", color: "bg-sunset text-sunset-foreground" },
-  { Icon: Calendar, label: "Events", color: "bg-terracotta text-terracotta-foreground" },
-  { Icon: UtensilsCrossed, label: "Food", color: "bg-primary text-primary-foreground" },
+  { name: "Isla de Cabras",  dist: "3.1 km", img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=500&q=85" },
+  { name: "El Morro Fort",   dist: "4.2 km", img: "https://images.unsplash.com/photo-1583398701142-37bd2d3f9d49?w=500&q=85" },
+  { name: "Old San Juan",    dist: "5.0 km", img: "https://images.unsplash.com/photo-1599413987323-2f7edc9c9c4d?w=500&q=85" },
 ];
 
 function HomeScreen() {
   return (
-    <div className="mx-auto max-w-6xl px-4 py-6 lg:px-8 lg:py-10">
-      {/* Greeting + weather */}
-      <header className="flex items-start justify-between gap-4">
-        <div>
-          <p className="font-accent text-xs text-muted-foreground">SÁBADO · 8 JUNIO</p>
-          <h1 className="mt-1 font-display text-3xl font-bold lg:text-4xl">¡Buenos días, Carlos!</h1>
-          <p className="mt-1 text-sm text-muted-foreground">Here's what's happening in Cataño today.</p>
-        </div>
-        <div className="flex items-center gap-2 rounded-2xl bg-card px-3 py-2 shadow-warm">
-          <Cloud className="text-ocean" size={18} />
+    <div className="mx-auto max-w-6xl px-4 py-0 lg:px-8">
+
+      {/* ── Hero ── */}
+      <section className="relative -mx-4 lg:-mx-8 mb-8 overflow-hidden" style={{ height: "68vh", minHeight: 420 }}>
+        <img
+          src="https://images.unsplash.com/photo-1548574505-5e239809ee19?w=1400&q=90"
+          alt="Old San Juan, Puerto Rico"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+        />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(165deg, oklch(0.06 0.02 240 / 0.55) 0%, transparent 50%, oklch(0.06 0.02 240 / 0.92) 100%)" }} />
+
+        {/* Top bar */}
+        <div className="absolute top-0 left-0 right-0 flex items-center justify-between px-6 pt-8">
           <div>
-            <div className="font-display text-xl font-bold leading-none">84°</div>
-            <div className="text-[10px] text-muted-foreground">Sunny</div>
+            <p className="eyebrow mb-0.5">Spirit of</p>
+            <h1 className="font-display text-3xl font-light italic text-white lg:text-4xl">Puerto Rico</h1>
+          </div>
+          <div className="glass-nav flex items-center gap-2 rounded-full px-3 py-2">
+            <div className="h-2 w-2 rounded-full" style={{ background: "oklch(0.80 0.16 72)" }} />
+            <span className="font-accent text-xs font-600 text-white/80 uppercase tracking-widest">84° Sunny</span>
           </div>
         </div>
-      </header>
 
-      {/* Featured story */}
-      <article className="card-lift mt-6 overflow-hidden rounded-3xl bg-card shadow-warm">
-        <div className="relative aspect-[16/9] w-full">
-          <img src="https://images.unsplash.com/photo-1583398701142-37bd2d3f9d49?w=1200&q=80" alt="Featured" className="h-full w-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-hero" />
-          <button className="absolute left-1/2 top-1/2 grid h-16 w-16 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white/95 text-primary shadow-glow">
-            <Play size={22} fill="currentColor" className="ml-1" />
-          </button>
-          <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
-            <span className="chip bg-sunset text-sunset-foreground">Featured Story</span>
-            <h2 className="mt-2 font-display text-2xl font-bold lg:text-3xl">Voices of the Bay: Three generations of fishermen</h2>
-            <div className="mt-3 flex items-center gap-2">
-              <div className="h-8 w-8 rounded-full bg-sunset ring-2 ring-white" />
-              <span className="text-sm">Doña Mariela · Local Elder</span>
-              <button className="ml-auto rounded-full bg-white px-4 py-1.5 text-xs font-semibold text-primary">Watch</button>
+        {/* Bottom hero content */}
+        <div className="absolute bottom-0 left-0 right-0 px-6 pb-8">
+          <p className="eyebrow mb-2">Featured Story</p>
+          <h2 className="font-display text-2xl font-light italic text-white leading-tight lg:text-3xl">
+            Voices of the Bay:<br/>
+            <span className="not-italic font-semibold">Three Generations of Fishermen</span>
+          </h2>
+          <div className="mt-3 flex items-center gap-3">
+            <button
+              className="flex items-center gap-2 rounded-full px-5 py-2.5 font-sans text-xs font-700 uppercase tracking-wider transition-transform hover:scale-105"
+              style={{ background: "var(--gradient-gold)", color: "oklch(0.10 0.02 60)" }}
+            >
+              <Play size={12} fill="currentColor" />
+              Watch Story
+            </button>
+            <div className="flex items-center gap-2">
+              <div className="h-7 w-7 rounded-full overflow-hidden border-2" style={{ borderColor: "oklch(0.80 0.16 72)" }}>
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&q=80" alt="" className="w-full h-full object-cover" />
+              </div>
+              <span className="font-sans text-xs text-white/75">Doña Mariela · Local Elder</span>
             </div>
           </div>
         </div>
-      </article>
+      </section>
 
-      {/* Quick actions */}
-      <section className="mt-8">
-        <h3 className="font-display text-lg font-bold">Quick actions</h3>
-        <div className="no-scrollbar mt-3 flex gap-3 overflow-x-auto pb-2">
-          {quickActions.map(({ Icon, label, color }) => (
-            <button key={label} className="card-lift flex min-w-[92px] flex-col items-center gap-2 rounded-2xl bg-card p-3 shadow-warm">
-              <span className={`grid h-12 w-12 place-items-center rounded-xl ${color}`}><Icon size={20} /></span>
-              <span className="text-xs font-semibold">{label}</span>
+      {/* ── Quick Actions ── */}
+      <section className="mb-10">
+        <div className="no-scrollbar flex gap-3 overflow-x-auto pb-2">
+          {quickActions.map(({ Icon, label, bg }) => (
+            <button key={label}
+              className="card-lift flex min-w-[88px] flex-col items-center gap-2.5 rounded-2xl py-4 px-3 transition-all"
+              style={{ background: "oklch(0.14 0.018 240)", border: "1px solid oklch(1 0 0 / 0.07)" }}
+            >
+              <span className="grid h-12 w-12 place-items-center rounded-xl" style={{ background: bg }}>
+                <Icon size={20} color="white" strokeWidth={1.8} />
+              </span>
+              <span className="font-accent text-[11px] font-600 uppercase tracking-wide text-white/70">{label}</span>
             </button>
           ))}
         </div>
       </section>
 
-      {/* Trending */}
-      <section className="mt-8">
-        <div className="flex items-end justify-between">
-          <h3 className="font-display text-lg font-bold">Trending this week</h3>
-          <button className="text-xs font-semibold text-primary">See all →</button>
+      {/* ── Trending ── */}
+      <section className="mb-10">
+        <div className="flex items-end justify-between mb-4">
+          <h3 className="font-display text-2xl font-light italic text-white">Trending <span className="not-italic font-semibold">This Week</span></h3>
+          <button className="eyebrow flex items-center gap-1">See all <ArrowRight size={11} /></button>
         </div>
-        <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 sm:grid-cols-3">
           {trending.map((s) => (
-            <article key={s.title} className="card-lift overflow-hidden rounded-2xl bg-card shadow-warm">
-              <div className="relative aspect-[4/3]">
-                <img src={s.img} alt={s.title} className="h-full w-full object-cover" />
-                <span className="chip absolute left-3 top-3 bg-white/95 text-primary">{s.tag}</span>
+            <article key={s.title} className="card-lift relative overflow-hidden rounded-2xl" style={{ height: 220 }}>
+              <img src={s.img} alt={s.title} className="absolute inset-0 w-full h-full object-cover" />
+              <div className="absolute inset-0 photo-overlay" />
+              <div className="absolute top-3 left-3">
+                <span className="chip text-white/90" style={{ background: "oklch(1 0 0 / 0.15)", backdropFilter: "blur(8px)" }}>{s.tag}</span>
               </div>
-              <div className="p-4">
-                <h4 className="font-display text-base font-semibold leading-snug">{s.title}</h4>
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <h4 className="font-display text-base font-semibold text-white leading-snug">{s.title}</h4>
               </div>
             </article>
           ))}
         </div>
       </section>
 
-      {/* Events */}
-      <section className="mt-8">
-        <h3 className="font-display text-lg font-bold">Upcoming local events</h3>
-        <div className="no-scrollbar mt-3 flex gap-4 overflow-x-auto pb-2">
+      {/* ── Events ── */}
+      <section className="mb-10">
+        <div className="flex items-end justify-between mb-4">
+          <h3 className="font-display text-2xl font-light italic text-white">Local <span className="not-italic font-semibold">Events</span></h3>
+          <button className="eyebrow flex items-center gap-1">See all <ArrowRight size={11} /></button>
+        </div>
+        <div className="no-scrollbar flex gap-4 overflow-x-auto pb-2">
           {events.map((e) => (
-            <article key={e.name} className="card-lift min-w-[260px] overflow-hidden rounded-2xl bg-card shadow-warm">
-              <div className="aspect-[5/3]"><img src={e.img} alt={e.name} className="h-full w-full object-cover" /></div>
+            <article key={e.name} className="card-lift min-w-[260px] overflow-hidden rounded-2xl" style={{ background: "oklch(0.14 0.018 240)", border: "1px solid oklch(1 0 0 / 0.07)" }}>
+              <div className="relative h-40 overflow-hidden">
+                <img src={e.img} alt={e.name} className="w-full h-full object-cover" />
+                <div className="absolute inset-0 photo-overlay" />
+                <span className="absolute top-3 right-3 chip" style={{ background: "var(--gradient-gold)", color: "oklch(0.10 0.02 60)" }}>{e.price}</span>
+              </div>
               <div className="p-4">
-                <div className="font-accent text-[11px] text-sunset">{e.date}</div>
-                <h4 className="mt-1 font-display text-base font-semibold">{e.name}</h4>
-                <div className="mt-1 flex items-center gap-1 text-xs text-muted-foreground"><MapPin size={12}/>{e.loc}</div>
-                <button className="mt-3 w-full rounded-full bg-primary py-2 text-xs font-semibold text-primary-foreground">Get Tickets</button>
+                <div className="eyebrow mb-1 flex items-center gap-1.5"><Clock size={10} />{e.date}</div>
+                <h4 className="font-display text-lg font-semibold text-white leading-tight">{e.name}</h4>
+                <div className="mt-1 flex items-center gap-1 font-sans text-xs text-white/50"><MapPin size={11} />{e.loc}</div>
+                <button
+                  className="mt-3 w-full rounded-full py-2.5 font-sans text-xs font-700 uppercase tracking-wider transition-transform hover:scale-105"
+                  style={{ background: "var(--gradient-gold)", color: "oklch(0.10 0.02 60)" }}
+                >
+                  Get Tickets
+                </button>
               </div>
             </article>
           ))}
         </div>
       </section>
 
-      {/* Spotlight business */}
-      <section className="mt-8 overflow-hidden rounded-3xl bg-gradient-ocean p-6 text-white shadow-warm lg:p-8">
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-center">
-          <img src="https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=600&q=80" alt="Business" className="h-36 w-full rounded-2xl object-cover sm:h-32 sm:w-40" />
+      {/* ── Business Spotlight ── */}
+      <section className="mb-10 relative overflow-hidden rounded-3xl">
+        <img
+          src="https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=1200&q=85"
+          alt="Panadería La Bahía"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0" style={{ background: "oklch(0.06 0.02 240 / 0.80)" }} />
+        <div className="relative p-7 lg:p-10 flex flex-col sm:flex-row sm:items-center gap-6">
           <div className="flex-1">
-            <span className="font-accent text-xs text-sunset">SPOTLIGHT · LOCAL BUSINESS</span>
-            <h3 className="mt-1 font-display text-2xl font-bold">Panadería La Bahía</h3>
-            <p className="mt-1 text-sm text-white/85">Family-run since 1962. Try the mallorcas at sunrise — they're a Cataño rite of passage.</p>
-            <div className="mt-3 flex items-center gap-3">
-              <div className="flex items-center gap-1 text-sm"><Star size={14} className="fill-sunset text-sunset" /> 4.9 · 312 reviews</div>
+            <p className="eyebrow mb-2">Spotlight · Local Business</p>
+            <h3 className="font-display text-3xl font-light italic text-white leading-tight">
+              Panadería <span className="not-italic font-semibold">La Bahía</span>
+            </h3>
+            <p className="mt-2 font-sans text-sm text-white/70 max-w-sm">Family-run since 1962. Try the mallorcas at sunrise — a Cataño rite of passage.</p>
+            <div className="mt-3 flex items-center gap-1.5">
+              <Star size={13} fill="oklch(0.80 0.16 72)" stroke="none" />
+              <span className="font-sans text-sm text-white/80">4.9 · 312 reviews</span>
             </div>
           </div>
-          <button className="rounded-full bg-sunset px-5 py-2.5 text-sm font-semibold text-sunset-foreground">Visit <ArrowRight size={14} className="ml-1 inline" /></button>
+          <button
+            className="self-start sm:self-center flex items-center gap-2 rounded-full px-6 py-3 font-sans text-sm font-700 uppercase tracking-wider whitespace-nowrap"
+            style={{ background: "var(--gradient-gold)", color: "oklch(0.10 0.02 60)" }}
+          >
+            Visit <ArrowRight size={14} />
+          </button>
         </div>
       </section>
 
-      {/* Hidden gems */}
-      <section className="mt-8">
-        <h3 className="font-display text-lg font-bold">Hidden gems near you</h3>
-        <div className="no-scrollbar mt-3 flex gap-4 overflow-x-auto pb-2">
+      {/* ── Hidden Gems ── */}
+      <section className="mb-10">
+        <div className="flex items-end justify-between mb-4">
+          <h3 className="font-display text-2xl font-light italic text-white">Hidden <span className="not-italic font-semibold">Gems</span></h3>
+          <button className="eyebrow flex items-center gap-1">See all <ArrowRight size={11} /></button>
+        </div>
+        <div className="no-scrollbar flex gap-4 overflow-x-auto pb-2">
           {gems.map((g) => (
-            <article key={g.name} className="card-lift relative min-w-[200px] overflow-hidden rounded-2xl shadow-warm">
-              <img src={g.img} alt={g.name} className="aspect-[3/4] w-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-hero" />
-              <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                <h4 className="font-display text-base font-bold">{g.name}</h4>
-                <div className="text-xs opacity-90">{g.dist} away</div>
+            <article key={g.name} className="card-lift relative min-w-[180px] overflow-hidden rounded-2xl" style={{ height: 260 }}>
+              <img src={g.img} alt={g.name} className="absolute inset-0 w-full h-full object-cover" />
+              <div className="absolute inset-0 photo-overlay" />
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <h4 className="font-display text-base font-semibold text-white">{g.name}</h4>
+                <div className="flex items-center gap-1 font-sans text-xs text-white/55 mt-0.5"><MapPin size={10} />{g.dist} away</div>
               </div>
             </article>
           ))}
         </div>
       </section>
+
     </div>
   );
 }

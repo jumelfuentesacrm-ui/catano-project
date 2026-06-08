@@ -1,116 +1,119 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Search, Star, Users, Clock, ArrowRight } from "lucide-react";
+import { Star, Clock, Users, ArrowRight } from "lucide-react";
+import { useState } from "react";
 
 export const Route = createFileRoute("/_shell/adventures")({
-  head: () => ({
-    meta: [
-      { title: "Adventures — Cataño" },
-      { name: "description", content: "Tours, eco-adventures, wellness, fishing, food and culture experiences across Puerto Rico." },
-    ],
-  }),
+  head: () => ({ meta: [{ title: "Adventures — Spirit of Puerto Rico" }] }),
   component: AdventuresScreen,
 });
 
-const cats = ["🏄 Water","🌿 Eco","🎨 Culture","🧘 Wellness","🎣 Fishing","🍽️ Food","🎭 Events","🗺️ Custom"];
+const cats = ["All","🏄 Water","🌿 Eco","🎨 Culture","🧘 Wellness","🎣 Fishing","🍽️ Food","🎭 Events","🗺️ Custom"];
 
 const experiences = [
-  { title: "Bioluminescent Bay Kayak", img: "https://images.unsplash.com/photo-1502933691298-84fc14542831?w=600&q=80", dur: "3 hr", grp: "8 max", price: "$72", rating: 4.9, group: true },
-  { title: "Old San Juan Food Crawl", img: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80", dur: "4 hr", grp: "10 max", price: "$58", rating: 4.8 },
-  { title: "El Yunque Rainforest Hike", img: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80", dur: "6 hr", grp: "12 max", price: "$95", rating: 4.9, group: true },
-  { title: "Sunset Snorkel at Icacos", img: "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=600&q=80", dur: "4 hr", grp: "10 max", price: "$88", rating: 4.7 },
+  { title: "Bioluminescent Bay Kayak",  img: "https://images.unsplash.com/photo-1502933691298-84fc14542831?w=700&q=85", dur: "3 hr", grp: "8 max",  price: "$72",  rating: 4.9, hot: true },
+  { title: "Old San Juan Food Crawl",    img: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&q=85", dur: "4 hr", grp: "10 max", price: "$58",  rating: 4.8, hot: false },
+  { title: "El Yunque Rainforest Hike",  img: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=700&q=85", dur: "6 hr", grp: "12 max", price: "$95",  rating: 4.9, hot: true },
+  { title: "Sunset Snorkel at Icacos",   img: "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=700&q=85", dur: "4 hr", grp: "10 max", price: "$88",  rating: 4.7, hot: false },
+  { title: "Coffee Farm Sunrise Tour",   img: "https://images.unsplash.com/photo-1442975631115-c4f7b05b8a2c?w=700&q=85", dur: "5 hr", grp: "8 max",  price: "$65",  rating: 4.8, hot: false },
+  { title: "Deep Sea Fishing Charter",   img: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=700&q=85", dur: "8 hr", grp: "6 max",  price: "$140", rating: 4.9, hot: true },
 ];
 
 function AdventuresScreen() {
-  return (
-    <div className="mx-auto max-w-6xl px-4 py-6 lg:px-8 lg:py-10">
-      <header>
-        <p className="font-accent text-xs text-muted-foreground">EXPERIENCES</p>
-        <h1 className="mt-1 font-display text-3xl font-bold lg:text-4xl">What do you want to experience?</h1>
-      </header>
+  const [activeCat, setActiveCat] = useState("All");
 
-      <div className="mt-5 flex items-center gap-2 rounded-full bg-card px-5 py-3 shadow-warm">
-        <Search size={18} className="text-muted-foreground" />
-        <input className="w-full bg-transparent text-sm outline-none" placeholder="Snorkeling, food tours, biolum kayak..." />
-        <button className="rounded-full bg-primary px-4 py-1.5 text-xs font-semibold text-primary-foreground">Search</button>
+  return (
+    <div className="mx-auto max-w-6xl px-4 py-0 lg:px-8">
+
+      {/* Hero */}
+      <div className="relative -mx-4 lg:-mx-8 mb-8 overflow-hidden" style={{ height: 260 }}>
+        <img src="https://images.unsplash.com/photo-1502933691298-84fc14542831?w=1400&q=85" alt="Adventures" className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, oklch(0.06 0.02 240 / 0.3) 0%, oklch(0.06 0.02 240 / 0.94) 100%)" }} />
+        <div className="absolute bottom-0 left-0 right-0 px-6 pb-6">
+          <p className="eyebrow mb-1">Experiences</p>
+          <h1 className="font-display text-3xl font-light italic text-white">Island <span className="not-italic font-semibold">Adventures</span></h1>
+          <p className="font-sans text-sm text-white/60 mt-1">500+ curated experiences across Puerto Rico</p>
+        </div>
       </div>
 
-      <div className="no-scrollbar mt-5 flex gap-2 overflow-x-auto pb-1">
+      {/* Category filter */}
+      <div className="no-scrollbar flex gap-2 overflow-x-auto pb-3 mb-8">
         {cats.map((c) => (
-          <button key={c} className="rounded-full border border-border bg-card px-4 py-2 text-xs font-semibold whitespace-nowrap hover:bg-accent">{c}</button>
+          <button key={c} onClick={() => setActiveCat(c)}
+            className="chip whitespace-nowrap transition-all"
+            style={activeCat === c
+              ? { background: "var(--gradient-gold)", color: "oklch(0.10 0.02 60)" }
+              : { background: "oklch(0.14 0.018 240)", color: "oklch(0.60 0.02 260)", border: "1px solid oklch(1 0 0 / 0.08)" }
+            }
+          >{c}</button>
         ))}
       </div>
 
-      {/* Featured experience */}
-      <article className="card-lift mt-6 grid gap-0 overflow-hidden rounded-3xl bg-card shadow-warm md:grid-cols-2">
-        <div className="relative aspect-[4/3] md:aspect-auto">
-          <img src="https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=1000&q=80" alt="" className="h-full w-full object-cover" />
-          <span className="chip absolute left-4 top-4 bg-sunset text-sunset-foreground">Featured</span>
-        </div>
-        <div className="flex flex-col justify-center p-6 lg:p-8">
-          <span className="font-accent text-[11px] text-tropical">CULTURE · 5 HRS</span>
-          <h2 className="mt-2 font-display text-2xl font-bold lg:text-3xl">Bomba & Plena: A Saturday in Loíza</h2>
-          <p className="mt-2 text-sm text-muted-foreground">Dance, drum, eat, and learn from the families who keep this Afro-Boricua tradition alive.</p>
-          <div className="mt-4 flex items-center gap-4 text-sm">
-            <span className="flex items-center gap-1"><Star size={14} className="fill-sunset text-sunset" /> 4.95 · 218</span>
-            <span className="text-muted-foreground">·</span>
-            <span className="font-display text-xl font-bold">$84<span className="text-sm font-normal text-muted-foreground"> /person</span></span>
+      {/* Featured big card */}
+      <div className="mb-8 relative overflow-hidden rounded-3xl card-lift" style={{ height: 340 }}>
+        <img src="https://images.unsplash.com/photo-1583398701142-37bd2d3f9d49?w=1400&q=85" alt="Featured" className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(105deg, oklch(0.06 0.02 240 / 0.88) 0%, transparent 60%)" }} />
+        <div className="absolute inset-0 flex flex-col justify-end p-7">
+          <span className="chip mb-3 self-start" style={{ background: "var(--gradient-gold)", color: "oklch(0.10 0.02 60)" }}>Featured Experience</span>
+          <h2 className="font-display text-3xl font-light italic text-white max-w-sm leading-tight">
+            Private El Morro <span className="not-italic font-semibold">Sunset Tour</span>
+          </h2>
+          <div className="flex items-center gap-4 mt-3">
+            <div className="flex items-center gap-1"><Star size={13} fill="oklch(0.80 0.16 72)" stroke="none" /><span className="font-sans text-sm text-white/80">4.9</span></div>
+            <div className="flex items-center gap-1 text-white/60"><Clock size={13} /><span className="font-sans text-sm">3 hr</span></div>
+            <div className="flex items-center gap-1 text-white/60"><Users size={13} /><span className="font-sans text-sm">Private</span></div>
           </div>
-          <button className="mt-5 inline-flex w-fit items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-warm">Book Now <ArrowRight size={14} /></button>
+          <div className="flex items-center justify-between mt-4">
+            <div className="font-display text-3xl font-light text-white">$120 <span className="font-sans text-sm text-white/50 font-normal">/ person</span></div>
+            <button className="flex items-center gap-2 rounded-full px-6 py-3 font-sans text-sm font-700 uppercase tracking-wider"
+              style={{ background: "var(--gradient-gold)", color: "oklch(0.10 0.02 60)" }}>
+              Book Now <ArrowRight size={14} />
+            </button>
+          </div>
         </div>
-      </article>
+      </div>
 
       {/* Grid */}
-      <section className="mt-8">
-        <h3 className="font-display text-lg font-bold">Popular experiences</h3>
-        <div className="mt-3 grid grid-cols-2 gap-3 lg:grid-cols-4">
-          {experiences.map((e) => (
-            <article key={e.title} className="card-lift overflow-hidden rounded-2xl bg-card shadow-warm">
-              <div className="relative aspect-[4/5]">
-                <img src={e.img} alt={e.title} className="h-full w-full object-cover" />
-                {e.group && <span className="chip absolute left-2 top-2 bg-tropical text-tropical-foreground">Groups 8+ · 20% off</span>}
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 mb-8">
+        {experiences.map((e) => (
+          <article key={e.title} className="card-lift overflow-hidden rounded-2xl" style={{ background: "oklch(0.14 0.018 240)", border: "1px solid oklch(1 0 0 / 0.07)" }}>
+            <div className="relative overflow-hidden" style={{ height: 180 }}>
+              <img src={e.img} alt={e.title} className="w-full h-full object-cover" />
+              <div className="absolute inset-0 photo-overlay" />
+              {e.hot && <span className="chip absolute top-3 left-3" style={{ background: "var(--gradient-gold)", color: "oklch(0.10 0.02 60)" }}>🔥 Hot</span>}
+            </div>
+            <div className="p-4">
+              <h3 className="font-display text-lg font-semibold text-white leading-snug">{e.title}</h3>
+              <div className="flex items-center gap-3 mt-2 text-white/55">
+                <span className="flex items-center gap-1 font-sans text-xs"><Star size={11} fill="oklch(0.80 0.16 72)" stroke="none" />{e.rating}</span>
+                <span className="flex items-center gap-1 font-sans text-xs"><Clock size={11} />{e.dur}</span>
+                <span className="flex items-center gap-1 font-sans text-xs"><Users size={11} />{e.grp}</span>
               </div>
-              <div className="p-3">
-                <h4 className="font-display text-sm font-semibold leading-snug">{e.title}</h4>
-                <div className="mt-1 flex items-center gap-2 text-[11px] text-muted-foreground">
-                  <span className="flex items-center gap-1"><Clock size={11}/>{e.dur}</span>
-                  <span className="flex items-center gap-1"><Users size={11}/>{e.grp}</span>
-                </div>
-                <div className="mt-2 flex items-center justify-between">
-                  <div className="font-display text-base font-bold">{e.price}</div>
-                  <div className="flex items-center gap-1 text-xs"><Star size={12} className="fill-sunset text-sunset" />{e.rating}</div>
-                </div>
-                <button className="mt-2 w-full rounded-full bg-primary py-1.5 text-xs font-semibold text-primary-foreground">Book</button>
+              <div className="flex items-center justify-between mt-3">
+                <div className="font-display text-2xl font-light text-white">{e.price} <span className="font-sans text-xs text-white/45 font-normal">/ person</span></div>
+                <button className="chip" style={{ background: "var(--gradient-gold)", color: "oklch(0.10 0.02 60)" }}>Book</button>
               </div>
-            </article>
-          ))}
-        </div>
-      </section>
+            </div>
+          </article>
+        ))}
+      </div>
 
-      {/* Build itinerary banner */}
-      <section className="mt-8 flex flex-col gap-3 rounded-3xl bg-gradient-tropical p-6 text-tropical-foreground shadow-warm sm:flex-row sm:items-center">
-        <div className="flex-1">
-          <span className="font-accent text-[11px] opacity-90">CUSTOM</span>
-          <h3 className="mt-1 font-display text-2xl font-bold">Build your itinerary</h3>
-          <p className="mt-1 text-sm opacity-90">Stitch together a multi-day adventure with a local planner.</p>
-        </div>
-        <button className="rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-tropical">Start planning →</button>
-      </section>
-
-      {/* Private guides */}
-      <section className="card-lift mt-6 overflow-hidden rounded-3xl bg-card p-6 shadow-warm">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-          <div className="flex -space-x-3">
-            {[1,2,3,4].map((i) => (
-              <div key={i} className="h-12 w-12 rounded-full bg-gradient-sunset ring-4 ring-card" />
-            ))}
-          </div>
+      {/* Custom itinerary banner */}
+      <div className="mb-8 relative overflow-hidden rounded-3xl">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=85" alt="Custom" className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0" style={{ background: "oklch(0.06 0.02 240 / 0.82)" }} />
+        <div className="relative p-7 flex flex-col sm:flex-row items-center gap-5">
           <div className="flex-1">
-            <h3 className="font-display text-xl font-bold">Want a dedicated local guide?</h3>
-            <p className="text-sm text-muted-foreground">Tell us your interests — we'll match you in under 24 hrs.</p>
+            <p className="eyebrow mb-1">Build Your Journey</p>
+            <h3 className="font-display text-2xl font-light italic text-white">Custom <span className="not-italic font-semibold">Itinerary</span></h3>
+            <p className="font-sans text-sm text-white/60 mt-1">We'll design a multi-day experience around you</p>
           </div>
-          <button className="rounded-full bg-terracotta px-5 py-2.5 text-sm font-semibold text-terracotta-foreground">Request a Guide</button>
+          <button className="rounded-full px-6 py-3 font-sans text-sm font-700 uppercase tracking-wider whitespace-nowrap"
+            style={{ background: "var(--gradient-gold)", color: "oklch(0.10 0.02 60)" }}>
+            Start Planning →
+          </button>
         </div>
-      </section>
+      </div>
+
     </div>
   );
 }
