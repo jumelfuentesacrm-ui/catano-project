@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Heart, Share2, Bookmark, Play, Plus } from "lucide-react";
+import { Heart, Share2, Bookmark, Play, Plus, Video } from "lucide-react";
 import { useState } from "react";
 
 export const Route = createFileRoute("/_shell/stories")({
@@ -7,107 +7,189 @@ export const Route = createFileRoute("/_shell/stories")({
   component: StoriesScreen,
 });
 
-const filters = ["All", "Elders", "History", "Business", "Youth", "Culture"] as const;
+const filters = ["All", "Elders", "History", "Business", "Youth", "Events", "Culture"] as const;
 
+// Real Community Storytelling Network content as described in the concept doc
 const stories = [
-  { title: "The day the ferry brought my abuelo home", desc: "A 90-year-old recounts returning from the Korean War through San Juan Bay.", creator: "Doña Mariela", badge: "Local Elder", tags: ["#FamilyHistory", "#CatañoProud"], img: "https://images.unsplash.com/photo-1548574505-5e239809ee19?w=800&q=85", avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&q=80", likes: 847 },
-  { title: "Running my mother's panadería at 22", desc: "Why I came back from Orlando to keep the bakery and the family legacy alive.", creator: "Joseline Ramírez", badge: "Business Owner", tags: ["#LocalBusiness", "#Roots"], img: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=85", avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=80&q=80", likes: 612 },
-  { title: "Bomba y plena — the pulse that never left", desc: "Three musicians explain why this rhythm is Puerto Rico's spiritual backbone.", creator: "DJ Yaniel", badge: "Youth Creator", tags: ["#Cultura", "#Música"], img: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800&q=85", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80", likes: 1204 },
-  { title: "Kayaking through the bioluminescent bay at midnight", desc: "The eerie glow of Laguna Grande is something you never forget.", creator: "Eco Tours PR", badge: "Tour Guide", tags: ["#Adventure", "#Nature"], img: "https://images.unsplash.com/photo-1502933691298-84fc14542831?w=800&q=85", avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&q=80", likes: 2341 },
+  {
+    title: "The day the ferry brought my abuelo home from the Korean War",
+    desc: "A 90-year-old Cataño resident recounts standing on the docks as a child, watching the ship come into San Juan Bay. A family history story no textbook could tell.",
+    creator: "Doña Mariela Rivera",
+    badge: "Local Elder",
+    category: "Elders",
+    tags: ["#FamilyHistory", "#CatañoProud", "#OralHistory"],
+    img: "https://images.unsplash.com/photo-1548574505-5e239809ee19?w=900&q=85",
+    avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&q=80",
+    likes: 847,
+    duration: "8 min",
+  },
+  {
+    title: "Running my mother's panadería at 22 — why I came back from Orlando",
+    desc: "Joseline left Puerto Rico for college and a job in Florida. Then her mother got sick. She came home for two weeks and never left. This is how she kept a 60-year-old bakery alive.",
+    creator: "Joseline Ramírez",
+    badge: "Business Owner",
+    category: "Business",
+    tags: ["#LocalBusiness", "#Roots", "#Cataño"],
+    img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=900&q=85",
+    avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=80&q=80",
+    likes: 612,
+    duration: "12 min",
+  },
+  {
+    title: "Bomba y plena — the rhythm that kept Cataño's identity alive",
+    desc: "Three musicians break down why bomba is not just music — it's a direct line to West African roots, to resistance, to who Puerto Ricans are.",
+    creator: "Yaniel Ortiz",
+    badge: "Youth Creator",
+    category: "Culture",
+    tags: ["#Cultura", "#Música", "#BombaYPlena"],
+    img: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=900&q=85",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80",
+    likes: 1204,
+    duration: "15 min",
+  },
+  {
+    title: "Isla de Cabras — the hidden gem most Puerto Ricans have never visited",
+    desc: "Just a short ferry ride from Cataño sits a small island with colonial ruins, a lighthouse, and some of the clearest water in the bay. We went to find out why it stays undiscovered.",
+    creator: "Eco Tours PR",
+    badge: "Tour Guide",
+    category: "History",
+    tags: ["#HiddenGem", "#IsladeCabras", "#Cataño"],
+    img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=900&q=85",
+    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&q=80",
+    likes: 2341,
+    duration: "10 min",
+  },
+  {
+    title: "Festival de la Bahía: how a community reclaimed its waterfront",
+    desc: "Every summer, Cataño's Paseo Marítimo transforms into a celebration of food, music and community. This year's organizer explains what it means for the neighborhood.",
+    creator: "Municipio de Cataño",
+    badge: "Nonprofit",
+    category: "Events",
+    tags: ["#FestivalBahía", "#ComunidadCataño", "#Events"],
+    img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=900&q=85",
+    avatar: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=80&q=80",
+    likes: 558,
+    duration: "6 min",
+  },
 ];
 
 function StoriesScreen() {
   const [active, setActive] = useState<string>("All");
+  const shown = active === "All" ? stories : stories.filter((s) => s.category === active);
 
   return (
-    <div className="mx-auto max-w-3xl px-4 py-6 lg:px-8">
+    <div style={{ background: "#FAF8F3" }}>
 
-      {/* Header over photo */}
-      <div className="relative -mx-4 lg:-mx-8 mb-8 overflow-hidden rounded-b-3xl" style={{ height: 220 }}>
-        <img src="https://images.unsplash.com/photo-1583398701142-37bd2d3f9d49?w=1200&q=85" alt="Puerto Rico" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, oklch(0.06 0.02 240 / 0.4) 0%, oklch(0.06 0.02 240 / 0.88) 100%)" }} />
-        <div className="absolute bottom-0 left-0 right-0 px-6 pb-6">
-          <p className="eyebrow mb-1">Community</p>
-          <h1 className="font-display text-3xl font-light italic text-white">Stories of <span className="not-italic font-semibold">Puerto Rico</span></h1>
+      {/* Header */}
+      <div className="relative overflow-hidden" style={{ height: 220 }}>
+        <img src="https://images.unsplash.com/photo-1583398701142-37bd2d3f9d49?w=1200&q=85"
+          alt="El Morro fortress Puerto Rico" className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0 overlay-hero" />
+        <div className="absolute inset-0 overlay-left" />
+        <div className="absolute bottom-0 inset-x-0 px-5 pb-6 lg:px-8">
+          <p className="eyebrow mb-1" style={{ color: "#D4A840" }}>Community Storytelling Network</p>
+          <h1 className="font-display text-3xl font-light italic text-white">Stories of <strong className="not-italic font-semibold">Puerto Rico</strong></h1>
         </div>
       </div>
 
-      {/* Featured collection */}
-      <div className="mb-6 relative overflow-hidden rounded-2xl" style={{ background: "oklch(0.14 0.018 240)", border: "1px solid oklch(1 0 0 / 0.07)" }}>
-        <img src="https://images.unsplash.com/photo-1599413987323-2f7edc9c9c4d?w=900&q=85" alt="Collection" className="absolute inset-0 w-full h-full object-cover opacity-30" />
-        <div className="relative p-5">
-          <p className="eyebrow mb-1">This Month's Collection</p>
-          <h2 className="font-display text-xl font-semibold italic text-white">Oral Histories of the Bay</h2>
-          <p className="font-sans text-sm text-white/60 mt-1">18 stories · curated by Spirit of Puerto Rico</p>
+      <div className="px-4 py-6 lg:px-8">
+
+        {/* Featured collection */}
+        <div className="mb-6 overflow-hidden rounded-2xl bg-white shadow-sm flex" style={{ border: "1px solid #EDE7D9" }}>
+          <img src="https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=300&q=80"
+            alt="Oral histories collection" className="w-28 object-cover flex-shrink-0" />
+          <div className="p-4 flex flex-col justify-center">
+            <p className="eyebrow mb-1">This Month</p>
+            <h2 className="font-display text-lg font-semibold italic" style={{ color: "#0A3D62" }}>Oral Histories of Old San Juan Bay</h2>
+            <p style={{ fontFamily: "Montserrat", fontSize: "0.7rem", color: "#8A7B6A", marginTop: 4 }}>18 stories · curated by Spirit of Puerto Rico</p>
+          </div>
+        </div>
+
+        {/* Filter tabs */}
+        <div className="no-scrollbar flex gap-2 overflow-x-auto pb-3 mb-6">
+          {filters.map((f) => (
+            <button key={f} onClick={() => setActive(f)} className="chip whitespace-nowrap transition-all"
+              style={active === f
+                ? { background: "#0A3D62", color: "#FAF8F3" }
+                : { background: "white", color: "#5A4A38", border: "1px solid #E5DDD0" }
+              }>{f}</button>
+          ))}
+        </div>
+
+        {/* Story cards */}
+        <div className="flex flex-col gap-5">
+          {shown.map((s) => (
+            <article key={s.title} className="overflow-hidden rounded-2xl bg-white shadow-sm" style={{ border: "1px solid #EDE7D9" }}>
+              {/* Video thumb */}
+              <div className="relative overflow-hidden" style={{ height: 210 }}>
+                <img src={s.img} alt={s.title} className="w-full h-full object-cover" />
+                <div className="absolute inset-0 overlay-card" />
+                {/* Play */}
+                <button className="absolute inset-0 flex items-center justify-center">
+                  <div className="grid h-14 w-14 place-items-center rounded-full"
+                    style={{ background: "rgba(255,255,255,0.18)", backdropFilter: "blur(8px)", border: "1.5px solid rgba(255,255,255,0.35)" }}>
+                    <Play size={20} fill="white" strokeWidth={0} className="ml-0.5" />
+                  </div>
+                </button>
+                <div className="absolute top-3 left-3 flex items-center gap-2">
+                  <span className="chip" style={{ background: "rgba(255,255,255,0.92)", color: "#0A3D62" }}>{s.badge}</span>
+                </div>
+                <div className="absolute bottom-3 right-3 flex items-center gap-1 chip"
+                  style={{ background: "rgba(0,0,0,0.5)", color: "white", backdropFilter: "blur(4px)" }}>
+                  <Video size={10} /> {s.duration}
+                </div>
+              </div>
+              {/* Body */}
+              <div className="p-5">
+                <div className="flex items-center gap-3 mb-3">
+                  <img src={s.avatar} alt={s.creator} className="h-9 w-9 rounded-full object-cover flex-shrink-0"
+                    style={{ border: "2px solid #EDE7D9" }} />
+                  <div>
+                    <p style={{ fontFamily: "Montserrat", fontSize: "0.78rem", fontWeight: 600, color: "#1A1612" }}>{s.creator}</p>
+                    <p style={{ fontFamily: "Barlow Condensed", fontSize: "0.62rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "#C89A30" }}>{s.badge}</p>
+                  </div>
+                </div>
+                <h3 className="font-display text-xl font-semibold" style={{ color: "#1A1612", lineHeight: 1.25 }}>{s.title}</h3>
+                <p style={{ fontFamily: "Montserrat", fontSize: "0.77rem", color: "#6A5A48", marginTop: 8, lineHeight: 1.6 }}>{s.desc}</p>
+                <div className="flex flex-wrap gap-1.5 mt-3">
+                  {s.tags.map((t) => (
+                    <span key={t} style={{ fontFamily: "Montserrat", fontSize: "0.65rem", color: "#9A8A78" }}>{t}</span>
+                  ))}
+                </div>
+                <div className="flex items-center justify-between mt-4 pt-4" style={{ borderTop: "1px solid #F0EBE1" }}>
+                  <div className="flex items-center gap-4">
+                    <button className="flex items-center gap-1.5 transition-colors hover:text-red-500"
+                      style={{ fontFamily: "Montserrat", fontSize: "0.72rem", color: "#8A7B6A" }}>
+                      <Heart size={14} /> {s.likes.toLocaleString()}
+                    </button>
+                    <button className="flex items-center gap-1.5 transition-colors"
+                      style={{ fontFamily: "Montserrat", fontSize: "0.72rem", color: "#8A7B6A" }}>
+                      <Share2 size={13} /> Share
+                    </button>
+                  </div>
+                  <button style={{ color: "#C5B8A8" }} className="hover:text-gold transition-colors">
+                    <Bookmark size={15} />
+                  </button>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        {/* Upload CTA */}
+        <div className="mt-8 overflow-hidden rounded-2xl relative" style={{ height: 120 }}>
+          <img src="https://images.unsplash.com/photo-1599413987323-2f7edc9c9c4d?w=900&q=80"
+            alt="Share your story" className="absolute inset-0 w-full h-full object-cover" />
+          <div className="absolute inset-0" style={{ background: "rgba(10,61,98,0.82)" }} />
+          <div className="relative flex items-center justify-between h-full px-6">
+            <div>
+              <p className="eyebrow mb-0.5" style={{ color: "#D4A840" }}>Your Turn</p>
+              <p className="font-display text-xl italic text-white">Share your Puerto Rico story</p>
+            </div>
+            <button className="btn-gold flex-shrink-0"><Plus size={14} /> Upload</button>
+          </div>
         </div>
       </div>
-
-      {/* Filters */}
-      <div className="no-scrollbar flex gap-2 overflow-x-auto pb-3 mb-6">
-        {filters.map((f) => (
-          <button key={f} onClick={() => setActive(f)}
-            className="chip whitespace-nowrap transition-all"
-            style={active === f
-              ? { background: "var(--gradient-gold)", color: "oklch(0.10 0.02 60)" }
-              : { background: "oklch(0.18 0.02 240)", color: "oklch(0.65 0.02 260)", border: "1px solid oklch(1 0 0 / 0.08)" }
-            }
-          >{f}</button>
-        ))}
-      </div>
-
-      {/* Story feed */}
-      <div className="flex flex-col gap-5">
-        {stories.map((s) => (
-          <article key={s.title} className="card-lift overflow-hidden rounded-2xl" style={{ background: "oklch(0.14 0.018 240)", border: "1px solid oklch(1 0 0 / 0.07)" }}>
-            {/* Thumbnail */}
-            <div className="relative overflow-hidden" style={{ height: 220 }}>
-              <img src={s.img} alt={s.title} className="w-full h-full object-cover" />
-              <div className="absolute inset-0 photo-overlay" />
-              <button className="absolute inset-0 flex items-center justify-center">
-                <div className="grid h-14 w-14 place-items-center rounded-full transition-transform hover:scale-110"
-                  style={{ background: "oklch(1 0 0 / 0.15)", backdropFilter: "blur(8px)", border: "1px solid oklch(1 0 0 / 0.25)" }}>
-                  <Play size={20} fill="white" stroke="none" className="ml-0.5" />
-                </div>
-              </button>
-              <span className="chip absolute top-3 left-3 text-white" style={{ background: "oklch(1 0 0 / 0.15)", backdropFilter: "blur(8px)" }}>{s.badge}</span>
-            </div>
-            {/* Content */}
-            <div className="p-5">
-              <div className="flex items-center gap-3 mb-3">
-                <img src={s.avatar} alt={s.creator} className="h-8 w-8 rounded-full object-cover" />
-                <div>
-                  <p className="font-sans text-sm font-600 text-white">{s.creator}</p>
-                  <p className="font-accent text-[10px] uppercase tracking-wide text-white/45">{s.badge}</p>
-                </div>
-              </div>
-              <h3 className="font-display text-xl font-semibold text-white leading-snug">{s.title}</h3>
-              <p className="font-sans text-sm text-white/60 mt-1.5 leading-relaxed">{s.desc}</p>
-              <div className="mt-3 flex flex-wrap gap-1.5">
-                {s.tags.map((t) => <span key={t} className="font-sans text-xs text-white/45">{t}</span>)}
-              </div>
-              <div className="mt-4 flex items-center justify-between">
-                <div className="flex items-center gap-4">
-                  <button className="flex items-center gap-1.5 font-sans text-xs text-white/55 hover:text-white transition-colors">
-                    <Heart size={15} /> {s.likes.toLocaleString()}
-                  </button>
-                  <button className="flex items-center gap-1.5 font-sans text-xs text-white/55 hover:text-white transition-colors">
-                    <Share2 size={14} /> Share
-                  </button>
-                </div>
-                <button className="text-white/40 hover:text-white transition-colors"><Bookmark size={15} /></button>
-              </div>
-            </div>
-          </article>
-        ))}
-      </div>
-
-      {/* Upload FAB */}
-      <button
-        className="fixed bottom-24 right-5 lg:bottom-8 flex items-center gap-2 rounded-full px-5 py-3 shadow-glow font-sans text-sm font-700 uppercase tracking-wider transition-transform hover:scale-105 z-30"
-        style={{ background: "var(--gradient-gold)", color: "oklch(0.10 0.02 60)" }}
-      >
-        <Plus size={16} /> Share Story
-      </button>
     </div>
   );
 }

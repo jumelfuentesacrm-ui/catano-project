@@ -4,13 +4,15 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&display=swap');
+
 @theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
-  --radius-3xl: calc(var(--radius) + 16px);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-3xl: 32px;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -26,168 +28,207 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
-  --color-input: var(--input);
   --color-ring: var(--ring);
 
   --color-gold: var(--gold);
-  --color-gold-foreground: var(--gold-foreground);
+  --color-gold-fg: var(--gold-fg);
   --color-ocean: var(--ocean);
-  --color-ocean-foreground: var(--ocean-foreground);
+  --color-ocean-fg: var(--ocean-fg);
   --color-coral: var(--coral);
-  --color-coral-foreground: var(--coral-foreground);
   --color-jungle: var(--jungle);
-  --color-jungle-foreground: var(--jungle-foreground);
 
-  /* Spirit of Puerto Rico — Typography */
   --font-display: "Cormorant Garamond", ui-serif, Georgia, serif;
-  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
-  --font-accent: "Barlow Condensed", ui-sans-serif, system-ui, sans-serif;
+  --font-sans:    "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-accent:  "Barlow Condensed", ui-sans-serif, system-ui, sans-serif;
 
-  --shadow-warm: 0 8px 32px -8px rgb(0 0 0 / 0.18), 0 2px 8px -2px rgb(0 0 0 / 0.10);
-  --shadow-card: 0 4px 24px -4px rgb(0 0 0 / 0.14);
-  --shadow-glow: 0 0 40px -8px oklch(0.70 0.18 60 / 0.35);
+  --shadow-sm:   0 1px 4px 0 rgb(0 0 0 / 0.06);
+  --shadow-md:   0 4px 16px -2px rgb(0 0 0 / 0.10), 0 1px 4px -1px rgb(0 0 0 / 0.06);
+  --shadow-warm: 0 8px 32px -6px rgb(180 120 40 / 0.14), 0 2px 8px -2px rgb(0 0 0 / 0.06);
+  --shadow-glow: 0 0 32px -4px rgb(210 155 40 / 0.35);
 }
 
+/* ── Spirit of Puerto Rico — Cream/White Light Theme ── */
 :root {
   --radius: 1rem;
 
-  /* Deep night base — photo-forward dark theme */
-  --background: oklch(0.10 0.018 240);
-  --foreground: oklch(0.96 0.008 80);
+  /* Warm cream base */
+  --background:    #FAF8F3;
+  --foreground:    #1A1612;
 
-  --card: oklch(0.14 0.018 240);
-  --card-foreground: oklch(0.96 0.008 80);
-  --popover: oklch(0.13 0.018 240);
-  --popover-foreground: oklch(0.96 0.008 80);
+  --card:          #FFFFFF;
+  --card-foreground: #1A1612;
+  --popover:       #FFFFFF;
+  --popover-foreground: #1A1612;
 
-  /* Gold — primary action */
-  --primary: oklch(0.80 0.16 72);
-  --primary-foreground: oklch(0.10 0.02 60);
+  /* Deep ocean blue — primary CTA */
+  --primary:       #0A3D62;
+  --primary-foreground: #FAF8F3;
 
-  --secondary: oklch(0.18 0.02 240);
-  --secondary-foreground: oklch(0.85 0.01 80);
+  --secondary:     #F2EDE3;
+  --secondary-foreground: #3D3020;
 
-  --muted: oklch(0.18 0.015 240);
-  --muted-foreground: oklch(0.60 0.02 260);
+  --muted:         #F0EBE1;
+  --muted-foreground: #8A7B6A;
 
-  --accent: oklch(0.20 0.025 240);
-  --accent-foreground: oklch(0.90 0.01 80);
+  --accent:        #EDE7D9;
+  --accent-foreground: #2A1F10;
 
-  --destructive: oklch(0.55 0.21 28);
-  --destructive-foreground: oklch(0.98 0 0);
+  --border:        #E5DDD0;
+  --input:         #EDE7D9;
+  --ring:          #C89A30;
 
-  --border: oklch(0.22 0.02 240);
-  --input: oklch(0.20 0.02 240);
-  --ring: oklch(0.80 0.16 72);
-
-  /* Brand tokens */
-  --gold: oklch(0.80 0.16 72);
-  --gold-foreground: oklch(0.10 0.02 60);
-  --ocean: oklch(0.38 0.10 235);
-  --ocean-foreground: oklch(0.96 0.008 80);
-  --coral: oklch(0.62 0.18 32);
-  --coral-foreground: oklch(0.98 0 0);
-  --jungle: oklch(0.52 0.14 148);
-  --jungle-foreground: oklch(0.98 0 0);
+  /* Brand palette */
+  --gold:          #C89A30;
+  --gold-fg:       #2A1800;
+  --ocean:         #0A3D62;
+  --ocean-fg:      #FAF8F3;
+  --coral:         #C0392B;
+  --jungle:        #1A6B3C;
 
   /* Gradients */
-  --gradient-hero: linear-gradient(180deg, transparent 0%, oklch(0.08 0.02 240 / 0.96) 100%);
-  --gradient-hero-left: linear-gradient(105deg, oklch(0.08 0.02 240 / 0.92) 0%, oklch(0.08 0.02 240 / 0.3) 70%, transparent 100%);
-  --gradient-card: linear-gradient(180deg, transparent 35%, oklch(0.06 0.02 240 / 0.97) 100%);
-  --gradient-gold: linear-gradient(135deg, oklch(0.84 0.16 72), oklch(0.68 0.18 48));
-  --gradient-ocean: linear-gradient(160deg, oklch(0.38 0.10 235), oklch(0.22 0.08 250));
-  --gradient-nav: linear-gradient(180deg, transparent, oklch(0.07 0.018 240 / 0.98) 40%);
+  --grad-gold:     linear-gradient(135deg, #D4A840 0%, #B8831E 100%);
+  --grad-ocean:    linear-gradient(160deg, #0A3D62 0%, #062540 100%);
+  --grad-hero:     linear-gradient(180deg, rgba(10,15,20,0.15) 0%, rgba(10,15,20,0.75) 100%);
+  --grad-card:     linear-gradient(180deg, transparent 30%, rgba(10,12,18,0.88) 100%);
+  --grad-left:     linear-gradient(100deg, rgba(10,15,20,0.82) 0%, rgba(10,15,20,0.20) 65%, transparent 100%);
 }
 
-/* Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&display=swap');
-
-/* Utility classes */
-.font-display { font-family: var(--font-display); }
-.font-sans    { font-family: var(--font-sans); }
-.font-accent  { font-family: var(--font-accent); }
-
-.shadow-warm  { box-shadow: var(--shadow-warm); }
-.shadow-card  { box-shadow: var(--shadow-card); }
-.shadow-glow  { box-shadow: var(--shadow-glow); }
-
-.bg-gradient-hero   { background: var(--gradient-hero); }
-.bg-gradient-gold   { background: var(--gradient-gold); }
-.bg-gradient-ocean  { background: var(--gradient-ocean); }
-
-.chip {
-  display: inline-flex;
-  align-items: center;
-  font-family: var(--font-accent);
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 0.25rem 0.65rem;
-  border-radius: 100px;
-}
-
-.eyebrow {
-  font-family: var(--font-accent);
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--gold);
-}
-
-.card-lift {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.card-lift:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-warm);
-}
-
-.no-scrollbar::-webkit-scrollbar { display: none; }
-.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
-/* Photo card overlay */
-.photo-overlay {
-  background: var(--gradient-card);
-}
-
-/* Glass nav */
-.glass-nav {
-  background: oklch(0.10 0.018 240 / 0.92);
-  backdrop-filter: blur(20px) saturate(1.6);
-  -webkit-backdrop-filter: blur(20px) saturate(1.6);
-  border: 1px solid oklch(1 0 0 / 0.08);
-}
-
-/* Sidebar glass */
-.sidebar-glass {
-  background: oklch(0.10 0.018 240 / 0.94);
-  backdrop-filter: blur(24px) saturate(1.4);
-  -webkit-backdrop-filter: blur(24px) saturate(1.4);
-}
-
-/* Section backgrounds using real PR imagery */
-.section-bg {
-  position: relative;
-  isolation: isolate;
-}
-.section-bg::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  opacity: 0.08;
-  z-index: -1;
-  border-radius: inherit;
-}
-
+/* ── Utility ── */
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+}
+
+.font-display { font-family: var(--font-display); }
+.font-accent  { font-family: var(--font-accent); }
+
+.shadow-sm   { box-shadow: var(--shadow-sm); }
+.shadow-md   { box-shadow: var(--shadow-md); }
+.shadow-warm { box-shadow: var(--shadow-warm); }
+.shadow-glow { box-shadow: var(--shadow-glow); }
+
+/* Eyebrow label */
+.eyebrow {
+  font-family: var(--font-accent);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* Chip / badge */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-accent);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.28rem 0.7rem;
+  border-radius: 100px;
+}
+
+/* Photo card overlay — dark gradient from bottom */
+.overlay-card { background: var(--grad-card); }
+.overlay-left { background: var(--grad-left); }
+.overlay-hero { background: var(--grad-hero); }
+
+/* Card hover lift */
+.card-lift {
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+  cursor: pointer;
+}
+.card-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-warm);
+}
+
+/* Gold CTA button */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--grad-gold);
+  color: var(--gold-fg);
+  font-family: var(--font-accent);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.7rem 1.4rem;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+/* Ocean outline button */
+.btn-ocean {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--ocean);
+  font-family: var(--font-accent);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.68rem 1.4rem;
+  border-radius: 100px;
+  border: 1.5px solid var(--ocean);
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+.btn-ocean:hover {
+  background: var(--ocean);
+  color: var(--ocean-fg);
+}
+
+/* Section heading */
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--foreground);
+  line-height: 1.1;
+}
+.section-title strong {
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* Scrollbar hidden */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Divider gold line */
+.divider-gold {
+  width: 36px;
+  height: 2px;
+  background: var(--grad-gold);
+  border-radius: 2px;
+}
+
+/* Glass effect for nav */
+.glass-nav {
+  background: rgba(250, 248, 243, 0.92);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  border: 1px solid rgba(200, 154, 48, 0.18);
+}
+
+/* Section separator */
+.section-sep {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2.5rem 0;
 }
