@@ -75,7 +75,7 @@ const gems = [{
   name: "Old San Juan Streets",
   dist: "5.0 km",
   desc: "Cobblestone streets, colorful colonial architecture",
-  img: "https://images.unsplash.com/photo-1569949381669-ecf31ae8e613?w=600&q=85"
+  img: "/photos/old-san-juan.png"
 }];
 function HomeScreen() {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: {

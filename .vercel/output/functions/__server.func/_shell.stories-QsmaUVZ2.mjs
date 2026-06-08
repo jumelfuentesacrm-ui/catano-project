@@ -30,7 +30,7 @@ const stories = [{
   badge: "Youth Creator",
   category: "Culture",
   tags: ["#Cultura", "#Música", "#BombaYPlena"],
-  img: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=900&q=85",
+  img: "/photos/bomba-plena.png",
   avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80",
   likes: 1204,
   duration: "15 min"
@@ -52,7 +52,7 @@ const stories = [{
   badge: "Nonprofit",
   category: "Events",
   tags: ["#FestivalBahía", "#ComunidadCataño", "#Events"],
-  img: "https://images.unsplash.com/photo-1504681869696-d977211a5e39?w=900&q=85",
+  img: "/photos/pr-festival.png",
   avatar: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=80&q=80",
   likes: 558,
   duration: "6 min"
